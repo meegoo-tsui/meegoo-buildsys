@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    Xprintf.py
+## @file    inc_printf.py
 #  @brief   printf message with color.
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -52,6 +52,11 @@ class printf:
 	## printf status info.
 	def status(self, message):
 		self.printf(4, "<status>\n\t" + message)
+		return
+
+	## printf silence info.
+	def silence(self, message):
+		self.printf(2, "\t" + message)
 		return
 
 	## reset the termenal

@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    Xtime.py
+## @file    inc_time.py
 #  @brief   timestamp package.
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -11,7 +11,7 @@ import os, sys
 from   datetime import datetime
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   Xprintf  import printf
+from   inc_printf  import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## timer and timestamp

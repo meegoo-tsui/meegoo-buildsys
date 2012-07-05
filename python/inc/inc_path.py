@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    Xpath.py
+## @file    inc_path.py
 #  @brief   path package.
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -10,7 +10,7 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   Xprintf   import printf
+from   inc_printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## path change.
@@ -20,22 +20,24 @@ class path:
 		## a stack for store the path
 		self.pathstack = []
 
-	## change path
+	## change path.
 	def change(self, new_path):
+		printf.status("change path: " + new_path)
 		os.chdir(new_path)
 		return
 
-	## push path to stack
+	## push path to stack.
 	def push(self):
-		pathstack.append(os.getcwd())
+		self.pathstack.append(os.getcwd())
+		printf.status("path push - " + os.getcwd())
 		return
 
-	## pop path from stack
+	## pop path from stack.
 	def pop(self):
 		if len(self.pathstack) == 0:
 			printf.error(os.path.abspath(__file__) + ": len(pathstack) is 0")
 			sys.exit(1)
-		self.change(pathstack.pop())
+		self.change(self.pathstack.pop())
 		return
 
 ## object of class path.

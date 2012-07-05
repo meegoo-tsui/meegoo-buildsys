@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    Xcmd.py
+## @file    inc_cmd.py
 #  @brief   command excute.
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -10,7 +10,7 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   Xprintf   import printf
+from   inc_printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## command excute
