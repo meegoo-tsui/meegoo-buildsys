@@ -1,14 +1,14 @@
 #! /usr/bin/python
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    utils.py
-#  @brief   utils package for all.
+## @file    Xprintf.py
+#  @brief   printf message with color.
 #  @author  meegoo.tsui@gmail.com
-#  @date    2012/07/04
+#  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @package utils
-#  @brief   utils package for all.
+## @package Xprintf
+#  @brief   printf message with color.
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/04
 
@@ -43,17 +43,19 @@ class printf:
 		if color > 7 or color < 0:
 			color = 0
 		print color_list[color] + message + color_list[0]
+		return
 
 	## printf test info.
 	def test(self):
-		self.printf(0, "\tcolor 0 - message...")
-		self.printf(1, "\tcolor 1 - message...")
-		self.printf(2, "\tcolor 2 - message...")
-		self.printf(3, "\tcolor 3 - message...")
-		self.printf(4, "\tcolor 4 - message...")
-		self.printf(5, "\tcolor 5 - message...")
-		self.printf(6, "\tcolor 6 - message...")
-		self.printf(7, "\tcolor 7 - message...")
+		self.printf(0, "color 0 - message...")
+		self.printf(1, "color 1 - message...")
+		self.printf(2, "color 2 - message...")
+		self.printf(3, "color 3 - message...")
+		self.printf(4, "color 4 - message...")
+		self.printf(5, "color 5 - message...")
+		self.printf(6, "color 6 - message...")
+		self.printf(7, "color 7 - message...")
+		return
 
 	## printf error info then exit.
 	def error(self, message):
@@ -63,16 +65,24 @@ class printf:
 	## printf status info.
 	def status(self, message):
 		self.printf(4, "<status>\n\t" + message)
+		return
+
+	## reset the termenal
+	def reset(self):
+		os.system("echo -e \\\\033c")
+		return
+
 
 ## object of class printf
 printf = printf()
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## Test all packages.
+## Test printf package.
 def main():
-	printf.status("Test class printf.")
+	printf.reset()
+	printf.status("Test package printf ...")
 	printf.test()
-	printf.status("Test class printf ok.")
+	printf.status("Test package printf ok.")
 
 	sys.exit(0)
 
