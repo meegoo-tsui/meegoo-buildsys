@@ -7,12 +7,6 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @package Xtime
-#  @brief   timestamp package.
-#  @author  meegoo.tsui@gmail.com
-#  @date    2012/07/05
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os, sys
 from   datetime import datetime
 

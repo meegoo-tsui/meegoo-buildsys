@@ -7,12 +7,6 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @package Xcmd
-#  @brief   command excute.
-#  @author  meegoo.tsui@gmail.com
-#  @date    2012/07/04
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -28,6 +22,12 @@ class cmd:
 		if not rtn == 0:
 			printf.error("fail - " + command)
 			sys.exit(1)
+		return
+
+	## try excute a command
+	def tryit(self, command):
+		printf.status("try running -> " + command)
+		os.system(command)
 		return
 
 ## object of class cmd

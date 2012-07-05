@@ -7,12 +7,6 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @package Xprintf
-#  @brief   printf message with color.
-#  @author  meegoo.tsui@gmail.com
-#  @date    2012/07/04
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -45,22 +39,15 @@ class printf:
 		print color_list[color] + message + color_list[0]
 		return
 
-	## printf test info.
-	def test(self):
-		self.printf(0, "color 0 - message...")
-		self.printf(1, "color 1 - message...")
-		self.printf(2, "color 2 - message...")
-		self.printf(3, "color 3 - message...")
-		self.printf(4, "color 4 - message...")
-		self.printf(5, "color 5 - message...")
-		self.printf(6, "color 6 - message...")
-		self.printf(7, "color 7 - message...")
-		return
-
 	## printf error info then exit.
 	def error(self, message):
 		self.printf(1, "<error>\n\t" + message)
 		sys.exit(1)
+
+	## printf warn info.
+	def warn(self, message):
+		self.printf(1, "<warn>\n\t" + message)
+		return
 
 	## printf status info.
 	def status(self, message):
@@ -79,9 +66,17 @@ printf = printf()
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Test printf package.
 def main():
+
 	printf.reset()
 	printf.status("Test package printf ...")
-	printf.test()
+	printf.printf(0, "color 0 - message...")
+	printf.printf(1, "color 1 - message...")
+	printf.printf(2, "color 2 - message...")
+	printf.printf(3, "color 3 - message...")
+	printf.printf(4, "color 4 - message...")
+	printf.printf(5, "color 5 - message...")
+	printf.printf(6, "color 6 - message...")
+	printf.printf(7, "color 7 - message...")
 	printf.status("Test package printf ok.")
 
 	sys.exit(0)
