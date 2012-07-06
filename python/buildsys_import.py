@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    buildsys_import.py
-#  @brief   buildsys import.
+#  @brief   python系统路径添加，使不同位置模块成为整体。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 

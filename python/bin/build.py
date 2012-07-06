@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    build.py
-#  @brief   build projects via build.ini.
+#  @brief   编译工具，使用当前路径下的build.ini作为配置文件。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 

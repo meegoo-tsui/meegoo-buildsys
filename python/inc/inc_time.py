@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_time.py
-#  @brief   timestamp package.
+#  @brief   时间戳及运行计时功能，堆栈操作计时。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 

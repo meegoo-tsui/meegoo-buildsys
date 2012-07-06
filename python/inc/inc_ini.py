@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_ini.py
-#  @brief   ini file parser.
+#  @brief   解析各种ini配置文件。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
@@ -14,7 +15,7 @@ import ConfigParser
 from   inc_printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## ini file parser.
+## 解析各种ini配置文件。
 class ini:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## The constructor.

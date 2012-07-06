@@ -3,7 +3,7 @@
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_arg.py
-#  @brief   参数解析及帮助信息.
+#  @brief   所有工具的参数解析及帮助信息。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
@@ -15,10 +15,10 @@ import getopt
 from   inc_printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## 参数解析、帮助信息.
+## 参数解析、帮助信息。
 class arg:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	## build.py 帮助信息
+	## 工具build.py的帮助信息。
 	def build_usage(self):
 		printf.printf(3, "Usage:\n" + "build.py " + "[options]")
 		printf.printf(3, '''
@@ -31,7 +31,7 @@ default      make clean, make, make install
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	## build.py 解析参数
+	## 工具build.py的解析参数。
 	def build_args(self):
 		printf.status("parse args ...")
 		try:
@@ -58,6 +58,6 @@ default      make clean, make, make install
 				sys.exit(1)
 		return build_type
 
-## arg 对象.
+## arg对象。
 arg = arg()
 

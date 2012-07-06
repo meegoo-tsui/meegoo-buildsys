@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_cmd.py
-#  @brief   command excute.
+#  @brief   在python执行其他shell命令。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
@@ -13,9 +14,9 @@ import os, sys
 from   inc_printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## command excute
+## 执行shell命令。
 class cmd:
-	## excute a command
+	## 执行shell命令，不成功就强制退出。
 	def do(self, command):
 		printf.status("running -> " + command)
 		rtn = os.system(command)
@@ -24,12 +25,12 @@ class cmd:
 			sys.exit(1)
 		return
 
-	## try excute a command
+	## 执行shell命令，不成功不强制退出。
 	def tryit(self, command):
 		printf.status("try running -> " + command)
 		os.system(command)
 		return
 
-## object of class cmd
+## cmd对象
 cmd = cmd()
 

@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_make.py
-#  @brief   makefile actions.
+#  @brief   执行make动作，三部曲。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 

@@ -18,7 +18,7 @@ if [ "$BUILD_SYS_ENV" == "" ]; then
 	export PATH="$BUILD_SYS_PATH/shell/bin:$PATH"
 	export PATH="$BUILD_SYS_PATH/python/inc:$PATH"
 	export PATH="$BUILD_SYS_PATH/python/bin:$PATH"
-	$BUILD_SYS_PATH/shell/bin/print_color.sh -y "[Add User tools to path]:"
+	$BUILD_SYS_PATH/shell/bin/print_color.sh -y "[Add tools to path]:"
 	$BUILD_SYS_PATH/shell/bin/print_color.sh -g "PATH = $PATH"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

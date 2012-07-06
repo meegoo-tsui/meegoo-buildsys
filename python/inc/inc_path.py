@@ -1,8 +1,9 @@
 #! /usr/bin/python
+#coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## @file    inc_path.py
-#  @brief   path package.
+#  @brief   路径切换，堆栈操作形式。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
