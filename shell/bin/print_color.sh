@@ -5,26 +5,20 @@
 #+ author
 #+   meegoo.tsui@gmail.com, 2012-06-28
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-txtrst=$(tput sgr0   ) # reset
-txtred=$(tput setaf 1) # red
-txtgrn=$(tput setaf 2) # green
-txtylw=$(tput setaf 3) # yellow
-txtblu=$(tput setaf 4) # blue
-txtpur=$(tput setaf 5) # purple
-txtcyn=$(tput setaf 6) # cyan
-txtwht=$(tput setaf 7) # white
+. $BUILD_SYS_PATH/shell/inc/color.sh
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function print_help() 
 { 
 	echo "${txtgrn}usage:${txtrst}"
-	echo "${txtred}  print_color.sh -r "printf color - red"   ${txtrst}"
-	echo "${txtgrn}  print_color.sh -g "printf color - green" ${txtrst}"
-	echo "${txtylw}  print_color.sh -y "printf color - yellow"${txtrst}"
-	echo "${txtblu}  print_color.sh -b "printf color - blue"  ${txtrst}"
-	echo "${txtpur}  print_color.sh -p "printf color - purple"${txtrst}"
-	echo "${txtcyn}  print_color.sh -c "printf color - cyan"  ${txtrst}"
-	echo "${txtwht}  print_color.sh -w "printf color - white" ${txtrst}"
+	echo "${txtred}  print_color.sh -r "\"printf color - red\""   ${txtrst}"
+	echo "${txtgrn}  print_color.sh -g "\"printf color - green\"" ${txtrst}"
+	echo "${txtylw}  print_color.sh -y "\"printf color - yellow\""${txtrst}"
+	echo "${txtblu}  print_color.sh -b "\"printf color - blue\""  ${txtrst}"
+	echo "${txtpur}  print_color.sh -p "\"printf color - purple\""${txtrst}"
+	echo "${txtcyn}  print_color.sh -c "\"printf color - cyan\""  ${txtrst}"
+	echo "${txtwht}  print_color.sh -w "\"printf color - white\"" ${txtrst}"
+	exit 1
 }
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -34,13 +28,12 @@ comment=""
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # getopt
-args=`getopt -o r:g:y:b:p:c:w:h -l help -- "$@"`
-if [ $? -ne 0 ];then
-	echo "${txtred}args error, try -h or --help${txtrst}"
+if [ $# -eq 0 ];then
+	print_help
 	exit 1
 fi
+args=`getopt -o r:g:y:b:p:c:w:h -l help -- "$@"`
 eval set -- $args
-
 for i;do
 	case $i in
 		-r) color=$txtred;comment=$2;shift 2;;
@@ -50,7 +43,7 @@ for i;do
 		-p) color=$txtpur;comment=$2;shift 2;;
 		-c) color=$txtcyn;comment=$2;shift 2;;
 		-w) color=$txtwht;comment=$2;shift 2;;	
-		-h|--help)print_help;exit 0;;
+		-h|--help)print_help;;
 		--)shift;;
 	esac
 done
