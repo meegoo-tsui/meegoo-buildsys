@@ -25,6 +25,9 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # doxygen html
 html
+buildsys.mak
+
 

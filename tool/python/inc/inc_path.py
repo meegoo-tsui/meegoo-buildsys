@@ -21,6 +21,10 @@ class path:
 		## a stack for store the path
 		self.pathstack = []
 
+	## get current path
+	def get(self):
+		return os.getcwd()
+
 	## change path.
 	def change(self, new_path):
 		printf.status("change path: " + new_path)

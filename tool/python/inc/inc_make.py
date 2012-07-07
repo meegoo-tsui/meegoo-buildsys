@@ -15,6 +15,7 @@ from   inc_printf import printf
 from   inc_cmd    import cmd
 from   inc_path   import path
 from   inc_ini    import ini
+from   inc_wfile  import wfile
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## makefile actions.
@@ -28,18 +29,21 @@ class make:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make clean
 	def make_clean(self):
+		wfile.wmakefile()
 		cmd.do("make clean")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make
 	def make(self):
+		wfile.wmakefile()
 		cmd.do("make")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make install
 	def make_install(self):
+		wfile.wmakefile()
 		cmd.do("make install")
 		return
 
@@ -50,6 +54,7 @@ class make:
 		printf.status("build ...")
 		# build all projects
 		for i in sorted(ini.build_configIni.sections()):
+			ini.section_current = i
 			printf.silence("build project: " + i)
 			temp_path = os.path.expandvars(ini.build_configIni.get(i, ini.build_paths[ini.pos_makefile][0]))
 			path.push()

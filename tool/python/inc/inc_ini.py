@@ -25,6 +25,9 @@ class ini:
 
 		## patser for build.ini
 		self.build_configIni = ConfigParser.ConfigParser()
+		
+		## current section pos
+		self.section_current = ""
 
 		## build path: source, makefile, patch and install.
 		self.build_paths     = [
