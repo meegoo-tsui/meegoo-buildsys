@@ -18,11 +18,11 @@ if buildsys_import_path not in sys.path:
 import buildsys_import
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from inc_printf import printf
-from inc_time   import time
-from inc_arg    import arg
-from inc_ini    import ini
-from inc_make   import make
+from   inc_printf import printf
+from   inc_time   import time
+from   inc_arg    import arg
+from   inc_ini    import ini
+from   inc_make   import make
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## main function.

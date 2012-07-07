@@ -28,11 +28,22 @@ class ini:
 
 		## build path: source, makefile, patch and install.
 		self.build_paths     = [
-		                        ("source.path",""), 
-		                        ("makefile.path",""), 
-		                        ("patch.path",""), 
-		                        ("install.path","")
-		                       ]
+		("makefile.path",""),
+		("install.path",""),
+		("source.path",""),  
+		("patch.path","")]
+
+		## makefile.path在字典self.build_paths中位置
+		self.pos_makefile = 0
+		
+		## install.path在字典self.build_paths中位置
+		self.pos_install  = 1
+		
+		## source.path在字典self.build_paths中位置
+		self.pos_source   = 2
+		
+		## patch.path在字典self.build_paths中位置
+		self.pos_patch    = 3
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## parser of build.ini
@@ -54,10 +65,10 @@ class ini:
 			for j in self.build_paths:
 				if self.build_configIni.has_option(i, j[0]):
 					temp_path = os.path.expandvars(self.build_configIni.get(i, j[0]))
-					if os.path.isdir(temp_path):
-						printf.silence("\t" + j[0] + " - " + temp_path)
-					else:
-						printf.error(temp_path + " is not a diretory !")
+					printf.silence("\t" + j[0] + " - " + temp_path)				
+					if not os.path.isdir(temp_path):
+						if j[0] == self.build_paths[self.pos_makefile][0]: # only check Makefile path
+							printf.error(temp_path + " is not a diretory !")							
 				else:
 					printf.silence("\t" + j[0] + " - no")
 		return

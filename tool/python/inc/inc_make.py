@@ -11,10 +11,10 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from inc_printf import printf
-from inc_cmd    import cmd
-from inc_path   import path
-from inc_ini    import ini
+from   inc_printf import printf
+from   inc_cmd    import cmd
+from   inc_path   import path
+from   inc_ini    import ini
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## makefile actions.
@@ -46,11 +46,12 @@ class make:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## do make actions
 	def do_makes(self):
+		global pos_makefile
 		printf.status("build ...")
 		# build all projects
 		for i in sorted(ini.build_configIni.sections()):
 			printf.silence("build project: " + i)
-			temp_path = os.path.expandvars(ini.build_configIni.get(i, ini.build_paths[1][0]))
+			temp_path = os.path.expandvars(ini.build_configIni.get(i, ini.build_paths[ini.pos_makefile][0]))
 			path.push()
 			path.change(temp_path)
 			if self.build_type == 1:
