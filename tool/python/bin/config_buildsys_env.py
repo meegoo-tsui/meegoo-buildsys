@@ -12,7 +12,7 @@ import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## buildsys import path
-buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/python"
+buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/tool/python"
 if buildsys_import_path not in sys.path:
      sys.path.insert(0, buildsys_import_path)
 import buildsys_import
@@ -30,8 +30,9 @@ env_content = "#"*80 + "\n" + config_flag + \
 '''
 current_path=$PWD
 cd $HOME/git/meegoo-buildsys
-. buildsys_env.sh
+. .env
 cd $current_path
+
 '''
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

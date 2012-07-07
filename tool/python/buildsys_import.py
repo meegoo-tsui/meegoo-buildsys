@@ -12,7 +12,7 @@ import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## buildsys import path
-buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/python"
+buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/tool/python"
 ## all import folders
 import_folder        = sorted(os.listdir(buildsys_import_path))
 
