@@ -10,15 +10,23 @@ include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Qt 源码位置
-QT_GIT_PATH  = $(HOME)/git/open/qt
+QT_GIT_PATH   = $(HOME)/git/open/qt
 # Qt 配置标志文件
-CONFIG_TOUCH = config.touch
+CONFIG_TOUCH  = config.touch
 # Qt 配置日志
-CONFIG_LOG   = $(PWD)/configure.log
+CONFIG_LOG    = $(PWD)/configure.log
 # Qt 编译日志
-MAKE_LOG     = $(PWD)/make.log
-# x11 配置选项
-X11_CONFIG   = ./configure -v -prefix $(EXEC_DIR) -qvfb
+MAKE_LOG      = $(PWD)/make.log
+# x86 64 配置选项
+X86_64_CONFIG = ./configure \
+                -prefix $(EXEC_DIR) \
+                -embedded x86_64 \
+                -platform  qws/linux-x86_64-g++ \
+                -xplatform qws/linux-x86_64-g++ \
+                -depths 16,24,32 -no-cups \
+                -no-largefile -no-accessibility -no-openssl \
+                -qt-mouse-pc -qt-mouse-qvfb -qt-mouse-linuxtp -qt-mouse-linuxinput -plugin-mouse-linuxtp -plugin-mouse-pc -fast \
+                -plugin-gfx-qvfb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: copy config
@@ -52,7 +60,7 @@ config:
 	@cd $(SRC_DIR); \
 	if [ ! -f $(CONFIG_TOUCH) ]; then \
 		echo $(CONFIG_TOUCH); \
-		$(X11_CONFIG) 2>$(CONFIG_LOG); \
+		$(X86_64_CONFIG) 2>$(CONFIG_LOG); \
 		touch $(CONFIG_TOUCH); \
 	fi
 
