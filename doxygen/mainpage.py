@@ -14,5 +14,5 @@
 #
 # - 使用方法
 # -# 设置环境变量，source .env
-# -# 使用编译示例，cd example; build.py -h
+# -# 使用编译示例，cd open/qt/x11; build.py -h
 
