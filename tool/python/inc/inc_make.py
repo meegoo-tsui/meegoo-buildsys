@@ -37,7 +37,7 @@ class make:
 	## make
 	def make(self):
 		wfile.wmakefile()
-		cmd.do("make")
+		cmd.do("make all")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
