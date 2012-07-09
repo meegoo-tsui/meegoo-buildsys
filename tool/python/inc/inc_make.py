@@ -50,7 +50,6 @@ class make:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## do make actions
 	def do_makes(self):
-		global pos_makefile
 		printf.status("build ...")
 		# build all projects
 		for i in ini.projects:

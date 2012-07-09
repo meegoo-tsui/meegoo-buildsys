@@ -25,16 +25,22 @@ from   inc_ini    import ini
 from   inc_make   import make
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## 默认编译配置文件名称
+build_ini = "build.ini"
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## main function.
 def main():
-	
+	global build_ini
+
 	# start build
 	printf.reset()
 	time.push(os.path.abspath(__file__))
 
 	# build the project
 	make.build_type = arg.build_args()
-	ini.build_parse()
+	build_ini = os.getcwd() + "/" + build_ini
+	ini.build_parse(build_ini)
 	make.do_makes()
 
 	# end build

@@ -12,6 +12,7 @@ import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from   inc_printf   import printf
+from   inc_ini      import ini
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 依据ini配置文件执行源码路径的相关补丁操作。
@@ -25,6 +26,15 @@ class patch:
 		self.out_path   = ""
 		## 补丁动作 - 0: 打上补丁，1：去除补丁，2：生成补丁
 		self.action     = 0
+	
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 执行补丁动作
+	def do_patch(self):
+		printf.status("patch ...")
+		# patch all projects
+		for i in ini.projects:
+			printf.silence("patch project: " + i[0])
+		return
 
 ## patch对象.
 patch = patch()

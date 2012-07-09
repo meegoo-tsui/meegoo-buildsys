@@ -21,6 +21,7 @@ import buildsys_import
 from   inc_printf import printf
 from   inc_time   import time
 from   inc_arg    import arg
+from   inc_ini    import ini
 from   inc_patch  import patch
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -34,7 +35,9 @@ def main():
 	# patch the project
 	patch_args    = arg.patch_args()
 	patch.action  = patch_args[0]
-	
+	ini.build_parse(patch_args[1])
+	patch.do_patch()
+
 	# end patch
 	time.pop()
 	printf.silence("patch done.")

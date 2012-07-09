@@ -21,7 +21,7 @@ class ini:
 	## The constructor.
 	def __init__(self):
 		## default input ini file.
-		self.build_ini       = "build.ini"
+		self.build_ini       = ""
 
 		## patser for build.ini
 		self.build_configIni = ConfigParser.ConfigParser()
@@ -50,10 +50,10 @@ class ini:
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## parser of build.ini
-	def build_parse(self):
+	def build_parse(self, build_ini):
 		# judge build_ini exists
 		printf.status("parse ini ...")
-		self.build_ini = os.getcwd() + "/" + self.build_ini
+		self.build_ini = build_ini
 		if not os.path.exists(self.build_ini):
 			printf.error(self.build_ini + " is not exsit !")
 			sys.exit(1)
