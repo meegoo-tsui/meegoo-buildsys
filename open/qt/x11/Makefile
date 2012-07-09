@@ -21,4 +21,7 @@ clean: clean_base
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 install: install_base
+	@cd $(SRC_DIR)/tools/qvfb; \
+	make; \
+	sudo make install
 

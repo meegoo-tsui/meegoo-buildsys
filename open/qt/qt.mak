@@ -17,7 +17,7 @@ MAKE_LOG      = $(PWD)/make.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all_base: copy config
-	echo "make all"
+	@set -e; \
 	cd $(SRC_DIR); \
 	make 2>$(MAKE_LOG)
 
