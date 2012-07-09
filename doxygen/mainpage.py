@@ -13,6 +13,6 @@
 # -# 使用python脚本，功能强大及易于使用；
 #
 # - 使用方法
-# -# 设置环境变量，source .env
+# -# 设置环境变量，cd env; source .env
 # -# 使用编译示例，cd open/qt/x11; build.py -h
 
