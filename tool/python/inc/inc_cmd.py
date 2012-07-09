@@ -28,8 +28,8 @@ class cmd:
 	## 执行shell命令，不成功不强制退出。
 	def tryit(self, command):
 		printf.status("try running -> " + command)
-		os.system(command)
-		return
+		rtn = os.system(command)
+		return rtn
 
 ## cmd对象
 cmd = cmd()

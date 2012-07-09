@@ -2,10 +2,10 @@
 #coding=utf-8
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    build.py
-#  @brief   编译工具，使用当前路径下的build.ini作为配置文件。
+## @file    patch.py
+#  @brief   编译工具，补丁相关动作。
 #  @author  meegoo.tsui@gmail.com
-#  @date    2012/07/05
+#  @date    2012/07/09
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os, sys
@@ -21,25 +21,23 @@ import buildsys_import
 from   inc_printf import printf
 from   inc_time   import time
 from   inc_arg    import arg
-from   inc_ini    import ini
-from   inc_make   import make
+from   inc_patch  import patch
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## main function.
 def main():
-	
-	# start build
+
+	# start patch
 	printf.reset()
 	time.push(os.path.abspath(__file__))
 
-	# build the project
-	make.build_type = arg.build_args()
-	ini.build_parse()
-	make.do_makes()
-
-	# end build
+	# patch the project
+	patch_args    = arg.patch_args()
+	patch.action  = patch_args[0]
+	
+	# end patch
 	time.pop()
-	printf.silence("build done.")
+	printf.silence("patch done.")
 	sys.exit(0)
 
 if __name__ == '__main__':

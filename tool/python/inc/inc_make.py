@@ -28,22 +28,22 @@ class make:
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make clean
-	def make_clean(self):
-		wfile.wmakefile()
+	def make_clean(self, project_args):
+		wfile.wmakefile(project_args)
 		cmd.do("make clean")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make
-	def make(self):
-		wfile.wmakefile()
+	def make(self, project_args):
+		wfile.wmakefile(project_args)
 		cmd.do("make all")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make install
-	def make_install(self):
-		wfile.wmakefile()
+	def make_install(self, project_args):
+		wfile.wmakefile(project_args)
 		cmd.do("make install")
 		return
 
@@ -53,23 +53,22 @@ class make:
 		global pos_makefile
 		printf.status("build ...")
 		# build all projects
-		for i in sorted(ini.build_configIni.sections()):
-			ini.section_current = i
-			printf.silence("build project: " + i)
-			temp_path = os.path.expandvars(ini.build_configIni.get(i, ini.build_paths[ini.pos_makefile][0]))
+		for i in ini.projects:
+			printf.silence("build project: " + i[0])
+			makefile_path = i[ini.pos_makefile + 1]
 			path.push()
-			path.change(temp_path)
+			path.change(makefile_path)
 			if self.build_type == 1:
-				self.make_clean()
+				self.make_clean(i)
 			elif self.build_type == 2:
-				self.make()
-				self.make_install()
+				self.make(i)
+				self.make_install(i)
 			elif self.build_type == 3:
-				self.make_install()
+				self.make_install(i)
 			else:
-				self.make_clean()
-				self.make()
-				self.make_install()
+				self.make_clean(i)
+				self.make(i)
+				self.make_install(i)
 			path.pop()
 		return
 

@@ -31,7 +31,9 @@ done
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 cd $exe_path
-find . -iname "*.pyc" | xargs rm -f # 删除当前路径的临时文件
-echo -e \\033c                      # 终端内容清除
-cd $current_path                    # 路径恢复
+find . -iname "*.pyc"        | xargs rm -f # 删除当前路径的临时文件
+find . -iname "*.log"        | xargs rm -f # 删除当前路径的临时文件
+find . -iname "buildsys.mak" | xargs rm -f # 删除当前路径的临时文件
+echo -e \\033c                             # 终端内容清除
+cd $current_path                           # 路径恢复
 

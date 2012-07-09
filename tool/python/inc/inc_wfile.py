@@ -25,17 +25,18 @@ class wfile:
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 依据build.ini生成makefile包含文件。
-	def wmakefile(self):
-		makefile_path = os.path.expandvars(ini.build_configIni.get(ini.section_current, ini.build_paths[ini.pos_makefile][0]))
+	def wmakefile(self, project_args):
+		makefile_path = project_args[ini.pos_makefile + 1]
 		fp = open(makefile_path + "/" + self.makefile,'w')
+
 		# 添加安装路径到makefile
-		if ini.build_configIni.has_option(ini.section_current, ini.build_paths[ini.pos_install][0]):
-			install_path  = os.path.expandvars(ini.build_configIni.get(ini.section_current, ini.build_paths[ini.pos_install][0]))
-			fp.write("# 安装路径\n" + "EXEC_DIR = " + install_path + "\n")
+		install_path  = project_args[ini.pos_install + 1]
+		fp.write("# 安装路径\n" + "EXEC_DIR = " + install_path + "\n")
+		
 		# 添加源码路径到makefile
-		if ini.build_configIni.has_option(ini.section_current, ini.build_paths[ini.pos_source][0]):
-			install_path  = os.path.expandvars(ini.build_configIni.get(ini.section_current, ini.build_paths[ini.pos_source][0]))
-			fp.write("# 源码路径\n" + "SRC_DIR = " + install_path + "\n")
+		source_path  = project_args[ini.pos_source + 1]
+		fp.write("# 源码路径\n" + "SRC_DIR = " + source_path + "\n")
+		
 		fp.close()
 		return
 
