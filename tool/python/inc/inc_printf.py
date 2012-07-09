@@ -65,7 +65,6 @@ class printf:
 		os.system("echo -e \\\\033c")
 		return
 
-
 ## object of class printf
 printf = printf()
 
