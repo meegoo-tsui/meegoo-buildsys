@@ -1,33 +1,26 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #+ Makefile:
-#+   git
+#+   doxygen
 #+ author:
 #+   meegoo.tsui@gmail.com
 #+ date:
-#+   2012/07/09
-#+
-#+ 依赖包：
-#+   1. sudo apt-cache search "libcurl*"
-#+   2. sudo apt-get install libcurl4-gnutls-dev
+#+   2012/07/11
 #+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 源码位置
-GIT_PATH   = $(HOME)/git/open/git
-
-# 版本
-VER        = v1.7.9.7
+SVN_PATH = $(HOME)/svn/open/doxygen-svn
 
 # 安装路径
-PREFIX     = $(EXEC_DIR)/$(VER)
+PREFIX       = $(EXEC_DIR)
 
 # 编译日志
-MAKE_LOG   = $(PWD)/make.log
+MAKE_LOG     = $(PWD)/make.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-all: copy
+all: copy config
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
@@ -39,10 +32,11 @@ clean:
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
-		git reset --hard; \
-		git clean -fdx; \
-		git checkout $(VER); \
-		make clean; \
+		if [ -f Makefile ]; then \
+			make clean; \
+			rm -f Makefile; \
+		fi; \
+		svn status | grep "^?" | awk '{print $2}' | xargs rm -rf; \
 	fi
 	@rm -f buildsys.mak $(MAKE_LOG)
 
@@ -57,12 +51,18 @@ install:
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 copy:
 	@set -e; \
-	if [ ! -d $(GIT_PATH) ]; then \
-		echo "克隆git源码..."; \
-		git clone git://git.kernel.org/pub/scm/git/git.git $(GIT_PATH); \
+	if [ ! -d $(SVN_PATH) ]; then \
+		echo "checkout doxygen ..."; \
+		svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk $(SVN_PATH); \
 	fi; \
 	if [ ! -d $(SRC_DIR) ]; then \
-		echo "复制git源码..."; \
-		cp -r $(GIT_PATH) $(SRC_DIR); \
+		echo "复制doxygen源码..."; \
+		cp -r $(SVN_PATH) $(SRC_DIR); \
 	fi
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+config:
+	@set -e; \
+	cd $(SRC_DIR); \
+	./configure --prefix $(PREFIX) --with-doxywizard 
 
