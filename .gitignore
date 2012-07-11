@@ -29,6 +29,7 @@ pip-log.txt
 # doxygen html
 html
 buildsys.mak
+patch.done
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # eclipse
