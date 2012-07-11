@@ -33,4 +33,3 @@ class cmd:
 
 ## cmd对象
 cmd = cmd()
-

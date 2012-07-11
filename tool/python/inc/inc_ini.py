@@ -82,4 +82,3 @@ class ini:
 
 ## object of class ini.
 ini = ini()
-

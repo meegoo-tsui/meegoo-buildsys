@@ -47,4 +47,3 @@ class path:
 
 ## object of class path.
 path = path()
-

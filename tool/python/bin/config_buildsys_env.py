@@ -14,7 +14,7 @@ import os, sys
 ## buildsys import path
 buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/tool/python"
 if buildsys_import_path not in sys.path:
-     sys.path.insert(0, buildsys_import_path)
+    sys.path.insert(0, buildsys_import_path)
 import buildsys_import
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -58,4 +58,3 @@ def main():
 	sys.exit(0)
 if __name__ == '__main__':
 	main()
-

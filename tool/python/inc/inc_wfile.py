@@ -42,4 +42,3 @@ class wfile:
 
 ## wfile对象.
 wfile = wfile()
-

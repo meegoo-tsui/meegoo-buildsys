@@ -24,4 +24,3 @@ for i in import_folder:
 	if os.path.isdir(sys_path):
 		if sys_path not in sys.path:
 			sys.path.insert(0, sys_path)
-
