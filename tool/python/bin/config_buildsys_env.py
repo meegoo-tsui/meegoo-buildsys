@@ -29,7 +29,7 @@ config_flag = "# Configure buildsys ENV"
 env_content = "#"*80 + "\n" + config_flag + \
 '''
 current_path=$PWD
-cd $HOME/git/meegoo-buildsys/env
+cd $HOME/git/meegoo-buildsys/tool/env
 . .env
 cd $current_path
 
