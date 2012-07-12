@@ -1,0 +1,12 @@
+diff --git a/current/demo/patch_test/src/main.c b/current/demo/patch_test/src/main.c
+index 2885077..7b68cfe 100644
+--- a/current/demo/patch_test/src/main.c
++++ b/current/demo/patch_test/src/main.c
+@@ -3,6 +3,7 @@
+ void main(void)
+ {
+ 	printf("Test buildsys tool - patch.py ...\r\n");
++	printf("补丁工具添加内容。\r\n");
+ 	return;
+ }
+ 

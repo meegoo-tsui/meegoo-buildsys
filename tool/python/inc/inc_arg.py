@@ -67,7 +67,8 @@ default      make clean, make, make install
 		printf.printf(3, '''
 Options:
 -h | --help  print help info
--r           svn
+-r           repos type
+             svn
              git
 -f           ini file path
 -a           action:
