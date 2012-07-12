@@ -22,8 +22,8 @@ class patch:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## The constructor.
 	def __init__(self):
-		## 仓库类型 svn、git
-		self.repos      = {}
+		## patch 参数字典
+		self.patch_args = {}
 		## 源码路径
 		self.in_path    = ""
 		## 补丁路径
@@ -95,6 +95,7 @@ class patch:
 			self.out_path = i[glb.patch_path]
 
 			# 补丁动作
+			self.action = self.patch_args['-a']
 			printf.silence("Patch action - " + str(self.action))
 			if self.action == 0:   # 0: 打上补丁
 				self.patch_on()

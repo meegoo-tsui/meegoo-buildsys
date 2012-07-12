@@ -14,7 +14,7 @@ import os, sys
 ## buildsys import path
 buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/tool/python"
 if buildsys_import_path not in sys.path:
-    sys.path.insert(0, buildsys_import_path)
+	sys.path.insert(0, buildsys_import_path)
 import buildsys_import
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -33,9 +33,9 @@ def main():
 	time.push(os.path.abspath(__file__))
 
 	# patch the project
-	patch_args    = arg.patch_args()
-	patch.action  = patch_args[0]
-	ini.build_parse(patch_args[1])
+	patch.patch_args = arg.patch_args()
+	patch_ini = os.getcwd() + "/" + patch.patch_args['-f']
+	ini.build_parse(patch_ini)
 	patch.do_patch()
 
 	# end patch

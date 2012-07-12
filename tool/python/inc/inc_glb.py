@@ -15,6 +15,8 @@ class glb:
     #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ## The constructor.
     def __init__(self):
+        ## build 配置文件名称
+        self.build_ini = "build.ini"
         ## build.ini参数 - 项目名称
         self.project_name  = "project.name"       
         ## build.ini参数 - 项目路径

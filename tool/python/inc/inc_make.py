@@ -21,8 +21,8 @@ class make:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## The constructor.
 	def __init__(self):
-		## default build action, 0 - build all, 1 - make clean, 2 - make, 3 - make install.
-		self.build_type = 0
+		## build 参数字典
+		self.build_args = {}
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make clean
@@ -55,17 +55,22 @@ class make:
 			project_path = i[glb.project_path]
 			path.push()
 			path.change(project_path)
-			if self.build_type == 1:
+
+			# 缺省无参数 - clean、make、install
+			sun = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
+			
+			# make clean
+			if self.build_args['-c'] == 1 or sun == 0:
 				self.make_clean(i)
-			elif self.build_type == 2:
+
+			# make
+			if self.build_args['-m'] == 1 or sun == 0:
 				self.make(i)
+
+			# make install
+			if self.build_args['-i'] == 1 or sum == 0:          
 				self.make_install(i)
-			elif self.build_type == 3:
-				self.make_install(i)
-			else:
-				self.make_clean(i)
-				self.make(i)
-				self.make_install(i)
+
 			path.pop()
 		return
 

@@ -50,9 +50,9 @@ default      make clean, make, make install
 			elif o == "-c":
 				build_args[o] = 1
 			elif o == "-m":
-				build_args[o] = 2
+				build_args[o] = 1
 			elif o == "-i":
-				build_args[o] = 3
+				build_args[o] = 1
 			else:
 				assert False, "unhandled option"
 				self.build_usage()
