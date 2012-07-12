@@ -37,6 +37,10 @@ class wfile:
 		if project_dict.has_key(glb.source_path):
 			fp.write("# 源码路径\n" + "SRC_DIR = " + project_dict[glb.source_path] + "\n")
 
+		# 添加补丁路径到makefile
+		if project_dict.has_key(glb.patch_path):
+			fp.write("# 补丁路径\n" + "PATCH_DIR = " + project_dict[glb.patch_path] + "\n")
+		
 		# 写文件完成
 		fp.close()
 

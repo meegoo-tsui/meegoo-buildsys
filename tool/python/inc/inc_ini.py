@@ -8,7 +8,7 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import os, sys
+import os, sys, time
 import ConfigParser
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -62,6 +62,8 @@ class ini:
 			for key in i.keys():
 				printf.silence(key + " = " + i[key])
 
+		# 等待1s
+		time.sleep(1)
 		return
 
 ## object of class ini.
