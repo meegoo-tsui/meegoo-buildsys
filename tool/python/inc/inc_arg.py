@@ -8,7 +8,7 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import os, sys
+import sys
 import getopt
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -41,22 +41,24 @@ default      make clean, make, make install
 			self.build_usage()
 			sys.exit(1)
 
-		build_type = 0
+		## build参数字典
+		build_args = {'-c':0, '-m':0, '-i':0} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.build_usage()
 				sys.exit(1)
 			elif o == "-c":
-				build_type = 1
+				build_args[o] = 1
 			elif o == "-m":
-				build_type = 2
+				build_args[o] = 2
 			elif o == "-i":
-				build_type = 3
+				build_args[o] = 3
 			else:
 				assert False, "unhandled option"
 				self.build_usage()
 				sys.exit(1)
-		return build_type
+
+		return build_args
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 工具patch.py的帮助信息。
@@ -65,13 +67,13 @@ default      make clean, make, make install
 		printf.printf(3, '''
 Options:
 -h | --help  print help info
+-r           svn
+             git
 -f           ini file path
 -a           action:
              0 - do patch
              1 - undo patch
              2 - create patch
--r           svn
-             git
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -85,32 +87,27 @@ Options:
 			self.patch_usage()
 			sys.exit(1)
 
-		## patch动作、ini路径、repos类型
-		patch_args = [0xFFFF , "", ""] # 默认为非法参数
+		## patch参数字典，repos类型、patch动作、ini路径
+		patch_args = {'-r':'', '-f':'', '-a':-1} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.patch_usage()
 				sys.exit(1)
 			elif o == "-f":
-				patch_args[1] = a
+				patch_args[o] = a
 			elif o == "-a":
-				patch_args[0] = int(a)
+				patch_args[o] = int(a)
 			elif o == "-r":
-				patch_args[2] = a
+				patch_args[o] = a
 			else:
 				assert False, "unhandled option"
 				self.patch_usage()
 				sys.exit(1)
 
 		# 判断参数
-		if patch_args[0] > 2 or patch_args[1] == "" or patch_args[2] == "":
+		if patch_args['-a'] < 0 or patch_args['-f'] == "" or patch_args['-r'] == "":
 			self.patch_usage()
 			sys.exit(1)
-		patch_args[1] = os.path.expandvars(os.getcwd() + "/" + patch_args[1])
-		if not os.path.exists(patch_args[1]):
-			printf.error(patch_args[1] + " is not a ini file !")
-		if patch_args[2] != "svn" and patch_args[2] != "git":
-			printf.error("-r svn or -r git")
 
 		return patch_args
 

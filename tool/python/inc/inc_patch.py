@@ -8,10 +8,11 @@
 #  @date    2012/07/09
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import os, sys
+import os
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from   inc_printf   import printf
+from   inc_glb      import glb
 from   inc_cmd      import cmd
 from   inc_ini      import ini
 
@@ -22,7 +23,7 @@ class patch:
 	## The constructor.
 	def __init__(self):
 		## 仓库类型 svn、git
-		self.repos      = ""
+		self.repos      = {}
 		## 源码路径
 		self.in_path    = ""
 		## 补丁路径
@@ -58,7 +59,7 @@ class patch:
 	def patch_on(self):
 		printf.silence("源码打上补丁 ...")
 		if self.is_patched() == 1:
-			printf.error("错误： 源码打上补丁！")
+			printf.error("错误： 源码已打上补丁！")
 		self.create_flag(1)
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -66,12 +67,13 @@ class patch:
 	def patch_down(self):
 		printf.silence("源码去除补丁 ...")
 		if self.is_patched() == 0:
-			printf.error("错误： 源码去除补丁！")
+			printf.error("错误： 源码已去除补丁！")
 		self.create_flag(0)
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 生成补丁
 	def patch_new(self):
+		self.create_flag(1)
 		printf.silence("源码生成补丁 ...")
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -81,16 +83,16 @@ class patch:
 	def do_patch(self):
 		printf.status("patch ...")
 		# patch all projects
-		for i in ini.projects:
-			printf.silence("patch project: " + i[0])
+		for i in ini.list_of_dict:
+			printf.silence("patch project: " + i[glb.project_name])
 			# 设置源码路径
-			if i[ini.pos_source + 1 ] == "":
+			if not i.has_key(glb.source_path):
 				printf.error("No source path !")
-			self.in_path = i[ini.pos_source + 1 ]
+			self.in_path = i[glb.source_path]
 			# 设置补丁路径
-			if i[ini.pos_patch + 1 ] == "":
+			if not i.has_key(glb.patch_path):
 				printf.error("No patch path !")
-			self.out_path = i[ini.pos_patch + 1 ]
+			self.out_path = i[glb.patch_path]
 
 			# 补丁动作
 			printf.silence("Patch action - " + str(self.action))
