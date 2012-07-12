@@ -25,7 +25,9 @@ class wfile:
 	def wmakefile(self, project_dict):
 		# 开始写文件
 		printf.status("write include makefile ...")
-		fp = open(project_dict[glb.project_path] + "/" + self.makefile,'w')
+		file_name = project_dict[glb.project_path] + "/" + self.makefile
+		fp = open(file_name, 'w')
+		printf.silence("file - " + file_name)
 
 		# 添加安装路径到makefile
 		if project_dict.has_key(glb.installe_path):
