@@ -8,11 +8,8 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import os, sys
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from   inc_printf   import printf
-from   inc_ini      import ini
+from   inc_glb      import glb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 依据ini配置文件生成其他编译辅助文件。
@@ -25,19 +22,22 @@ class wfile:
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 依据build.ini生成makefile包含文件。
-	def wmakefile(self, project_args):
-		makefile_path = project_args[ini.pos_makefile + 1]
-		fp = open(makefile_path + "/" + self.makefile,'w')
+	def wmakefile(self, project_dict):
+		# 开始写文件
+		printf.status("write include makefile ...")
+		fp = open(project_dict[glb.project_path] + "/" + self.makefile,'w')
 
 		# 添加安装路径到makefile
-		install_path  = project_args[ini.pos_install + 1]
-		fp.write("# 安装路径\n" + "EXEC_DIR = " + install_path + "\n")
+		if project_dict.has_key(glb.installe_path):
+			fp.write("# 安装路径\n" + "EXEC_DIR = " + project_dict[glb.installe_path] + "\n")
 		
 		# 添加源码路径到makefile
-		source_path  = project_args[ini.pos_source + 1]
-		fp.write("# 源码路径\n" + "SRC_DIR = " + source_path + "\n")
-		
+		if project_dict.has_key(glb.source_path):
+			fp.write("# 源码路径\n" + "SRC_DIR = " + project_dict[glb.source_path] + "\n")
+
+		# 写文件完成
 		fp.close()
+
 		return
 
 ## wfile对象.

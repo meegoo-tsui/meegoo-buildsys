@@ -12,6 +12,7 @@ import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from   inc_printf import printf
+from   inc_glb    import glb
 from   inc_cmd    import cmd
 from   inc_path   import path
 from   inc_ini    import ini
@@ -28,22 +29,22 @@ class make:
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make clean
-	def make_clean(self, project_args):
-		wfile.wmakefile(project_args)
+	def make_clean(self, project_dict):
+		wfile.wmakefile(project_dict)
 		cmd.do("make clean")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make
-	def make(self, project_args):
-		wfile.wmakefile(project_args)
+	def make(self, project_dict):
+		wfile.wmakefile(project_dict)
 		cmd.do("make all")
 		return
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make install
-	def make_install(self, project_args):
-		wfile.wmakefile(project_args)
+	def make_install(self, project_dict):
+		wfile.wmakefile(project_dict)
 		cmd.do("make install")
 		return
 
@@ -52,11 +53,11 @@ class make:
 	def do_makes(self):
 		printf.status("build ...")
 		# build all projects
-		for i in ini.projects:
-			printf.silence("build project: " + i[0])
-			makefile_path = i[ini.pos_makefile + 1]
+		for i in ini.list_of_dict:
+			printf.silence("build project: " + i[glb.project_name])
+			project_path = i[glb.project_path]
 			path.push()
-			path.change(makefile_path)
+			path.change(project_path)
 			if self.build_type == 1:
 				self.make_clean(i)
 			elif self.build_type == 2:

@@ -27,6 +27,8 @@ class path:
 
 	## change path.
 	def change(self, new_path):
+		if not os.path.isdir(new_path):
+			printf.error(new_path + " - " + " not a path !")
 		printf.status("change path: " + new_path)
 		os.chdir(new_path)
 		return

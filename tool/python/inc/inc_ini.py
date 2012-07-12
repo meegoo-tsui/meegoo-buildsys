@@ -13,6 +13,7 @@ import ConfigParser
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from   inc_printf   import printf
+from   inc_glb      import glb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 解析各种ini配置文件。
@@ -23,30 +24,11 @@ class ini:
 		## default input ini file.
 		self.build_ini       = ""
 
-		## patser for build.ini
+		## parser for build.ini
 		self.build_configIni = ConfigParser.ConfigParser()
 
-		## build path: source, makefile, patch and install.
-		self.build_paths     = [
-		("makefile.path",""),
-		("install.path",""),
-		("source.path",""),  
-		("patch.path","")]
-
-		## makefile.path在字典self.build_paths中位置
-		self.pos_makefile = 0
-		
-		## install.path在字典self.build_paths中位置
-		self.pos_install  = 1
-		
-		## source.path在字典self.build_paths中位置
-		self.pos_source   = 2
-		
-		## patch.path在字典self.build_paths中位置
-		self.pos_patch    = 3
-
-		## 项目路径 - 项目名称 + self.build_paths[0~3][0]
-		self.projects     = []
+		## 字典列表，每个section对应一个字典
+		self.list_of_dict    = []
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## parser of build.ini
@@ -62,22 +44,24 @@ class ini:
 		fp = open(self.build_ini,"r")
 		self.build_configIni.readfp(fp)
 		fp.close()
+
 		# parse all sections
 		for i in sorted(self.build_configIni.sections()):
-			printf.silence("project: " + i)
-			project_args = [i] # 项目名称
-			for j in self.build_paths:
-				if self.build_configIni.has_option(i, j[0]):
-					temp_path = os.path.expandvars(self.build_configIni.get(i, j[0]))
-					project_args.append(temp_path)
-					printf.silence("\t" + j[0] + " - " + temp_path)				
-					if not os.path.isdir(temp_path):
-						if j[0] == self.build_paths[self.pos_makefile][0]: # only check Makefile path
-							printf.error(temp_path + " is not a diretory !")							
-				else:
-					printf.silence("\t" + j[0] + " - no")
-					project_args.append("")
-			self.projects.append(project_args) # 动态添加项目的所有参数
+			## 初始化字典	
+			dictionary = {}
+			dictionary[glb.project_name] = i
+
+			## 读取所有option到字典
+			for j in self.build_configIni.options(i):
+				dictionary[j] = os.path.expandvars(self.build_configIni.get(i, j))
+			self.list_of_dict.append(dictionary)
+
+		## 打印解析到的数据
+		for i in self.list_of_dict:
+			printf.silence("\nsection:")
+			for key in i.keys():
+				printf.silence(key + " = " + i[key])
+
 		return
 
 ## object of class ini.
