@@ -132,7 +132,7 @@ class patch:
 		for i in patch_list:
 			if i == "":
 				continue
-			name = self.out_path + "/" + i.replace("/","_")
+			name = self.out_path + "/" + self.patch_args['-r'] + "-" + i.replace("/","_")
 			cmd.do(patch_cmd['diff'] + " " + i + " > " + name + glb.patch_filetype)
 
 		# 生成未托管文件补丁
@@ -141,7 +141,7 @@ class patch:
 		for i in patch_list:
 			if i == "" or i.find(self.flag) != -1:
 				continue
-			name = self.out_path + "/" + i.replace("/","_")
+			name = self.out_path + "/" + "git-" + i.replace("/","_")
 			cmd.tryit("git diff /dev/null " + i + " > " + name + glb.patch_filetype)
 
 		# 完成操作退出
