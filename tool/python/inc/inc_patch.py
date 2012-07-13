@@ -93,17 +93,18 @@ class patch:
 				printf.error("错误： 源码已去除补丁！")	
 			end_flag = " -R"
 
-		# 创建补丁路径
-		if not os.path.isdir(self.out_path):
-			cmd.do("mkdir -p " + self.out_path)
-
 		# 补丁类表
 		patch_list = []
 		patch_list.extend(glob.glob(self.out_path + "/*" + glb.patch_filetype))
 		# 处理所有补丁
 		for i in patch_list:
-			cmd.do("patch -d " + self.top_path + patch_cmd['level'] + i + end_flag)
-			
+			# git和svn产生的补丁路径不一样，区别对待
+			if i.find("git-") != -1:
+				level = self.cmd_git['level']
+			else:
+				level = patch_cmd['level']
+			cmd.do("patch -d " + self.top_path + level + i + end_flag)
+
 		# 完成
 		self.create_flag(not _a) # 标志文件处理
 		printf.status("补丁操作完成。")
@@ -165,6 +166,10 @@ class patch:
 				printf.error("No patch path !")
 			self.out_path = i[glb.patch_path]
 
+			# 创建补丁路径
+			if not os.path.isdir(self.out_path):
+				cmd.do("mkdir -p " + self.out_path)
+			
 			# 切换路径
 			path.push()
 			path.change(self.in_path)
