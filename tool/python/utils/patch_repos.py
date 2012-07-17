@@ -38,8 +38,6 @@ class patch_repos:
 		self.top_path   = ""
 		## 补丁动作 - 0: 打上补丁，1：去除补丁，2：生成补丁
 		self.action     = 0
-		## 补丁标志文件
-		self.flag       = "patch.done"
 		## git补丁命令
 		self.cmd_git    = {
 						    "list_modify":  "git ls-files -m",
@@ -59,7 +57,7 @@ class patch_repos:
 	## 判断是否已经打上补丁
 	def is_patched(self):
 		## 补丁标志文件
-		patch_flag_file = self.in_path + "/" + self.flag
+		patch_flag_file = self.in_path + "/" + glb.patch_flag
 		if os.path.exists(patch_flag_file):
 			printf.status("可以去除补丁。")
 			return 1
@@ -71,7 +69,7 @@ class patch_repos:
 	## 创建补丁标志文件
 	def create_flag(self, yes): # yes = 1: create, yes = 0: delete
 		## 补丁标志文件
-		patch_flag_file = self.in_path + "/" + self.flag
+		patch_flag_file = self.in_path + "/" + glb.patch_flag
 		if yes == 1:
 			cmd.do("touch " + patch_flag_file)
 		else:

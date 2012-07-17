@@ -13,8 +13,10 @@ include buildsys.mak
 PATCH_DIR ?=
 all: 
 	@if [ ! $(PATCH_DIR) = "" ]; then \
+		if [ ! -f $(SRC_DIR)/$(PATCH_FLAG) ]; then \
 		echo "打补丁 ..."; \
 		patch.py -r git -f build.ini -a 0 ; \
+		fi \
 	fi
 	gcc main.c -o patch_test.exe
 

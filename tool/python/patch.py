@@ -22,7 +22,6 @@ from   utils.patch_repos    import patch_repos
 def main():
 
 	# start patch
-	printf.reset()
 	time.push(os.path.abspath(__file__))
 
 	# patch the project

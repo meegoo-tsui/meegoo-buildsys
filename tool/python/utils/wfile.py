@@ -40,6 +40,7 @@ class wfile:
 		# 添加补丁路径到makefile
 		if project_dict.has_key(glb.patch_path):
 			fp.write("# 补丁路径\n" + "PATCH_DIR = " + project_dict[glb.patch_path] + "\n")
+			fp.write("# 补丁标志\n" + "PATCH_FLAG = " + glb.patch_flag + "\n")
 		
 		# 写文件完成
 		fp.close()
