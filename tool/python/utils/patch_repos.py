@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_patch.py
+## @file    patch_repos.py
 #  @brief   依据ini配置文件执行源码路径的相关补丁操作。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/09
@@ -11,12 +11,12 @@
 import os, glob
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf   import printf
-from   inc_glb      import glb
-from   inc_cmd      import cmd
-from   inc_path     import path
-from   inc_ini      import ini
-from   inc_time     import time
+from   utils.printf   import printf
+from   utils.glb      import glb
+from   utils.cmd      import cmd
+from   utils.path     import path
+from   utils.ini      import ini
+from   utils.time     import time
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 对应仓库命令
@@ -24,7 +24,7 @@ patch_cmd = {}
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 依据ini配置文件执行源码路径的相关补丁操作。
-class patch:
+class patch_repos:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## The constructor.
 	def __init__(self):
@@ -200,4 +200,4 @@ class patch:
 		return
 
 ## patch对象.
-patch = patch()
+patch_repos = patch_repos()

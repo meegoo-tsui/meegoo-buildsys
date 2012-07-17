@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_cmd.py
+## @file    cmd.py
 #  @brief   在python执行其他shell命令。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -11,7 +11,7 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf   import printf
+from   utils.printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 执行shell命令。

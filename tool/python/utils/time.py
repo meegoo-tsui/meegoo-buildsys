@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_time.py
+## @file    time.py
 #  @brief   时间戳及运行计时功能，堆栈操作计时。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -12,7 +12,7 @@ import os, sys
 from   datetime import datetime
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf  import printf
+from   utils.printf  import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## timer and timestamp

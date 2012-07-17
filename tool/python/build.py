@@ -11,19 +11,12 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## buildsys import path
-buildsys_import_path = os.environ["BUILD_SYS_PATH"] + "/tool/python"
-if buildsys_import_path not in sys.path:
-	sys.path.insert(0, buildsys_import_path)
-import buildsys_import
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf import printf
-from   inc_glb    import glb
-from   inc_time   import time
-from   inc_arg    import arg
-from   inc_ini    import ini
-from   inc_make   import make
+from   utils.printf import printf
+from   utils.glb    import glb
+from   utils.time   import time
+from   utils.arg    import arg
+from   utils.ini    import ini
+from   utils.make   import make
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## main function.

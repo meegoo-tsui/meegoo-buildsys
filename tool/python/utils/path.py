@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_path.py
+## @file    path.py
 #  @brief   路径切换，堆栈操作形式。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -11,7 +11,7 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf   import printf
+from   utils.printf   import printf
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## path change.

@@ -2,14 +2,14 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_wfile.py
+## @file    wfile.py
 #  @brief   依据ini配置文件生成其他编译辅助文件。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf   import printf
-from   inc_glb      import glb
+from   utils.printf   import printf
+from   utils.glb      import glb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 依据ini配置文件生成其他编译辅助文件。

@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_ini.py
+## @file    ini.py
 #  @brief   解析各种ini配置文件。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
@@ -12,8 +12,8 @@ import os, sys
 import ConfigParser
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf   import printf
-from   inc_glb      import glb
+from   utils.printf   import printf
+from   utils.glb      import glb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 解析各种ini配置文件。

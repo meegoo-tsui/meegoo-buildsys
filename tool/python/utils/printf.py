@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_printf.py
+## @file    printf.py
 #  @brief   信息打印，终端清理。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05

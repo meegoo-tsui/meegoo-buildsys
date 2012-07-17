@@ -2,7 +2,7 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_glb.py
+## @file    glb.py
 #  @brief   buildsys的全局变量， 相当于define，无需修改。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/11

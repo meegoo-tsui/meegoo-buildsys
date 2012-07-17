@@ -5,7 +5,7 @@
 #+ author
 #+   meegoo.tsui@gmail.com, 2012-06-28
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-. $BUILD_SYS_PATH/tool/shell/inc/color.sh
+. $BUILD_SYS_PATH/tool/shell/utils/color.sh
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function print_help() 

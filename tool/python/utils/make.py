@@ -2,18 +2,18 @@
 #coding=utf-8 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## @file    inc_make.py
+## @file    make.py
 #  @brief   执行make动作，三部曲。
 #  @author  meegoo.tsui@gmail.com
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   inc_printf import printf
-from   inc_glb    import glb
-from   inc_cmd    import cmd
-from   inc_path   import path
-from   inc_ini    import ini
-from   inc_wfile  import wfile
+from   utils.printf   import printf
+from   utils.glb      import glb
+from   utils.cmd      import cmd
+from   utils.path     import path
+from   utils.ini      import ini
+from   utils.wfile    import wfile
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## makefile actions.

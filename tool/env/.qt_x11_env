@@ -1,19 +1,19 @@
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -y "[Set env for Qt x11]:"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "[Set env for Qt x11]:"
 export QTDIR=/opt/qte-x11
 export QTINC=/opt/qte-x11/include
 export QTLIB=/opt/qte-x11/lib
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -y "QTDIR ="
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -g "$QTDIR"
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -y "QTINC ="
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -g "$QTINC"
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -y "QTLIB ="
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -g "$QTLIB"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "QTDIR ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTDIR"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "QTINC ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTINC"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "QTLIB ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTLIB"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # ${string//substring/replacement}
 substring=\/opt\/qte-???/bin:
 replacement=
 export PATH=/opt/qte-x11/bin:${PATH//$substring/$replacement}
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -y "PATH ="
-$BUILD_SYS_PATH/tool/shell/bin/print_color.sh -g "$PATH"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "PATH ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$PATH"
 
