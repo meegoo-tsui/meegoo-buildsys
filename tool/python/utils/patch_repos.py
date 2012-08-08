@@ -83,12 +83,14 @@ class patch_repos:
 		if _a == 0:
 			printf.silence("执行对源码打上补丁 ...")
 			if self.is_patched() == 1:
-				printf.error("错误： 源码已打上补丁！")
+				printf.warn("警告： 源码已打上补丁！")
+				return
 			end_flag = ""
 		else:
 			printf.silence("执行对源码去除补丁 ...")
 			if self.is_patched() == 0:
-				printf.error("错误： 源码已去除补丁！")	
+				printf.warn("警告： 源码已去除补丁！")
+				return
 			end_flag = " -R"
 
 		# 补丁类表
@@ -157,11 +159,13 @@ class patch_repos:
 			printf.silence("patch project: " + i[glb.project_name])
 			# 设置源码路径
 			if not i.has_key(glb.source_path):
-				printf.error("No source path !")
+				printf.warn("警告: No source path !")
+				return
 			self.in_path = i[glb.source_path]
 			# 设置补丁路径
 			if not i.has_key(glb.patch_path):
-				printf.error("No patch path !")
+				printf.warn("警告: No patch path !")
+				return
 			self.out_path = i[glb.patch_path]
 
 			# 创建补丁路径

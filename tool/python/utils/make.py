@@ -8,12 +8,13 @@
 #  @date    2012/07/05
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   utils.printf   import printf
-from   utils.glb      import glb
-from   utils.cmd      import cmd
-from   utils.path     import path
-from   utils.ini      import ini
-from   utils.wfile    import wfile
+from   utils.printf         import printf
+from   utils.glb            import glb
+from   utils.cmd            import cmd
+from   utils.path           import path
+from   utils.ini            import ini
+from   utils.wfile          import wfile
+from   utils.patch_repos    import patch_repos
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## makefile actions.
@@ -59,6 +60,10 @@ class make:
 			# 缺省无参数 - clean、make、install
 			sun = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
 			
+			# patch action
+			patch_repos.patch_args = {"-r":"git", "-f":ini.build_ini, "-a":0}
+			patch_repos.do_patch()
+
 			# make clean
 			if self.build_args['-c'] == 1 or sun == 0:
 				self.make_clean(i)
