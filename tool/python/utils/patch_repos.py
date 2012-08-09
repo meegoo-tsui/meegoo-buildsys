@@ -11,12 +11,12 @@
 import os, glob
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   utils.printf   import printf
-from   utils.glb      import glb
-from   utils.cmd      import cmd
-from   utils.path     import path
-from   utils.ini      import ini
-from   utils.time     import time
+from   utils.printf         import printf
+from   utils.glb            import glb
+from   utils.cmd            import cmd
+from   utils.path           import path
+from   utils.build_ini      import build_ini
+from   utils.time           import time
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## 对应仓库命令
@@ -155,7 +155,7 @@ class patch_repos:
 
 		printf.status("patch ...")
 		# patch all projects
-		for i in ini.list_of_dict:
+		for i in build_ini.list_of_dict:
 			printf.silence("patch project: " + i[glb.project_name])
 			# 设置源码路径
 			if not i.has_key(glb.source_path):
@@ -176,15 +176,19 @@ class patch_repos:
 			path.push()
 			path.change(self.in_path)
 
+			# 读取repos类型
+			if not i.has_key(glb.source_repos):
+				printf.warn("警告: No source repos !")
+				return
 			# 设置仓库命令
 			self.top_path = self.in_path # 默认为根路径
-			if self.patch_args['-r'] == "svn":
+			if i[glb.source_repos] == "svn":
 				patch_cmd = self.cmd_svn
-			elif self.patch_args['-r'] == "git":
+			elif i[glb.source_repos] == "git":
 				patch_cmd     = self.cmd_git
 				self.top_path = os.popen("git rev-parse --show-toplevel").read().split("\n")[0]
 			else:
-				printf.error("repos type error - " + self.patch_args['-r'])
+				printf.error("repos type error - " + i[glb.source_repos])
 
 			# 补丁动作
 			self.action = self.patch_args['-a']

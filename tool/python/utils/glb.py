@@ -25,6 +25,8 @@ class glb:
 		self.installe_path  = "install.path"
 		## build.ini参数 - 源码路径
 		self.source_path    = "source.path"
+		## build.ini参数 - 源码托管(git, svn)
+		self.source_repos   = "source.repos"
 		## build.ini参数 - 补丁路径
 		self.patch_path     = "patch.path"
 		## 补丁文件后缀

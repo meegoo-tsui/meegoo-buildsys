@@ -11,12 +11,12 @@
 import os, sys
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-from   utils.printf import printf
-from   utils.glb    import glb
-from   utils.time   import time
-from   utils.arg    import arg
-from   utils.ini    import ini
-from   utils.make   import make
+from   utils.printf         import printf
+from   utils.glb            import glb
+from   utils.time           import time
+from   utils.arg            import arg
+from   utils.build_ini      import build_ini
+from   utils.make           import make
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## main function.
@@ -27,8 +27,8 @@ def main():
 
 	# build the project
 	make.build_args  = arg.build_args()
-	build_ini = os.getcwd() + "/" + glb.build_ini
-	ini.build_parse(build_ini)
+	ini = os.getcwd() + "/" + glb.build_ini
+	build_ini.parse(ini)
 	make.do_makes()
 
 	# end build

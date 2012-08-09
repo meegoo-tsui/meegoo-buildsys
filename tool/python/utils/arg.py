@@ -67,9 +67,6 @@ default      make clean, make, make install
 		printf.printf(3, '''
 Options:
 -h | --help  print help info
--r           repos type
-             svn
-             git
 -f           ini file path
 -a           action:
              0 - do patch
@@ -82,7 +79,7 @@ Options:
 	def patch_args(self):
 		printf.status("parse args ...")
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hf:a:r:", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hf:a:", ["help"])
 		except getopt.GetoptError as err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.patch_usage()
@@ -98,15 +95,13 @@ Options:
 				patch_args[o] = a
 			elif o == "-a":
 				patch_args[o] = int(a)
-			elif o == "-r":
-				patch_args[o] = a
 			else:
 				assert False, "unhandled option"
 				self.patch_usage()
 				sys.exit(1)
 
 		# 判断参数
-		if patch_args['-a'] < 0 or patch_args['-f'] == "" or patch_args['-r'] == "":
+		if patch_args['-a'] < 0 or patch_args['-f'] == "":
 			self.patch_usage()
 			sys.exit(1)
 

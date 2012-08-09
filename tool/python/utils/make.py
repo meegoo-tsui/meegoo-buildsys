@@ -12,7 +12,7 @@ from   utils.printf         import printf
 from   utils.glb            import glb
 from   utils.cmd            import cmd
 from   utils.path           import path
-from   utils.ini            import ini
+from   utils.build_ini      import build_ini
 from   utils.wfile          import wfile
 from   utils.patch_repos    import patch_repos
 
@@ -51,7 +51,7 @@ class make:
 	def do_makes(self):
 		printf.status("build ...")
 		# build all projects
-		for i in ini.list_of_dict:
+		for i in build_ini.list_of_dict:
 			printf.silence("build project: " + i[glb.project_name])
 			project_path = i[glb.project_path]
 			path.push()
@@ -61,7 +61,7 @@ class make:
 			sun = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
 			
 			# patch action
-			patch_repos.patch_args = {"-r":"git", "-f":ini.build_ini, "-a":0}
+			patch_repos.patch_args = {"-f":build_ini.ini, "-a":0}
 			patch_repos.do_patch()
 
 			# make clean

@@ -14,7 +14,7 @@ import os, sys
 from   utils.printf         import printf
 from   utils.time           import time
 from   utils.arg            import arg
-from   utils.ini            import ini
+from   utils.build_ini      import build_ini
 from   utils.patch_repos    import patch_repos
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,8 +26,8 @@ def main():
 
 	# patch the project
 	patch_repos.patch_args = arg.patch_args()
-	patch_ini = os.getcwd() + "/" + patch_repos.patch_args['-f']
-	ini.build_parse(patch_ini)
+	ini = os.getcwd() + "/" + patch_repos.patch_args['-f']
+	build_ini.parse(ini)
 	patch_repos.do_patch()
 
 	# end patch
