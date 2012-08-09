@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//utils/arg.py=utf-8
 encoding//utils/build_ini.py=utf-8
+encoding//utils/check_repos.py=utf-8
 encoding//utils/cmd.py=utf-8
 encoding//utils/glb.py=utf-8
 encoding//utils/make.py=utf-8
@@ -10,5 +11,6 @@ encoding//utils/printf.py=utf-8
 encoding//utils/time.py=utf-8
 encoding//utils/wfile.py=utf-8
 encoding/build.py=utf-8
+encoding/check.py=utf-8
 encoding/config_buildsys_env.py=utf-8
 encoding/patch.py=utf-8

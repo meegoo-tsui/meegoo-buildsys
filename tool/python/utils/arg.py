@@ -85,8 +85,8 @@ Options:
 			self.patch_usage()
 			sys.exit(1)
 
-		## patch参数字典，repos类型、patch动作、ini路径
-		patch_args = {'-r':'', '-f':'', '-a':-1} # 默认为非法参数
+		## patch参数字典，ini路径、patch动作
+		patch_args = {'-f':'', '-a':-1} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.patch_usage()
@@ -106,6 +106,47 @@ Options:
 			sys.exit(1)
 
 		return patch_args
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具check.py的帮助信息。
+	def check_usage(self):
+		printf.printf(3, "Usage:\n" + "check.py " + "[options]")
+		printf.printf(3, '''
+Options:
+-h | --help  print help info
+-f           ini file path
+''')
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具check.py的解析参数。
+	def check_args(self):
+		printf.status("parse args ...")
+		try:
+			opts, args = getopt.getopt(sys.argv[1:], "hf:", ["help"])
+		except getopt.GetoptError as err:
+			printf.warn(str(err)) # will print something like "option -a not recognized"
+			self.check_usage()
+			sys.exit(1)
+
+		## check参数字典，ini路径
+		check_args = {'-f':''} # 默认为非法参数
+		for o, a in opts:
+			if   o in ("-h", "--help"):
+				self.check_usage()
+				sys.exit(1)
+			elif o == "-f":
+				check_args[o] = a
+			else:
+				assert False, "unhandled option"
+				self.check_usage()
+				sys.exit(1)
+
+		# 判断参数
+		if check_args['-f'] == "":
+			self.patch_usage()
+			sys.exit(1)
+
+		return check_args
 
 ## arg对象。
 arg = arg()
