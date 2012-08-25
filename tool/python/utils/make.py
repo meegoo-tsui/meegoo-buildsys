@@ -58,22 +58,22 @@ class make:
 			path.change(project_path)
 
 			# 缺省无参数 - clean、make、install
-			sun = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
+			action_sum = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
 			
 			# patch action
 			patch_repos.patch_args = {"-f":build_ini.ini, "-a":0}
 			patch_repos.do_patch()
 
 			# make clean
-			if self.build_args['-c'] == 1 or sun == 0:
+			if self.build_args['-c'] == 1 or action_sum == 0:
 				self.make_clean(i)
 
 			# make
-			if self.build_args['-m'] == 1 or sun == 0:
+			if self.build_args['-m'] == 1 or action_sum == 0:
 				self.make(i)
 
 			# make install
-			if self.build_args['-i'] == 1 or sum == 0:          
+			if self.build_args['-i'] == 1 or action_sum == 0:
 				self.make_install(i)
 
 			path.pop()

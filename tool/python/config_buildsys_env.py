@@ -19,13 +19,15 @@ bashrc_file = os.path.expandvars("$HOME/.bashrc")
 ## 修改标志字符串。
 config_flag = "# Configure buildsys ENV"
 ## 添加内容。
-env_content = "#"*80 + "\n" + config_flag + \
+env_content = "#" + "+"*79 + "\n" + config_flag + \
 '''
-current_path=$PWD
-cd $HOME/git/meegoo-buildsys/tool/env
-. .env
-cd "$current_path"
-
+WORK_PATH=$HOME/work/git/github/meegoo-buildsys
+if [ -f $WORK_PATH/tool/env/.env ] ; then
+	current_path=$PWD
+	cd $WORK_PATH/tool/env
+	. .env
+	cd "$current_path"
+fi
 '''
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

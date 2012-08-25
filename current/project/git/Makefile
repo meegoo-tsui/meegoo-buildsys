@@ -15,7 +15,7 @@ include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 源码位置
-GIT_PATH   = $(HOME)/git/open/git
+GIT_PATH   = $(HOME)/work/open/git/git
 
 # 版本
 VER        = v1.7.9.7

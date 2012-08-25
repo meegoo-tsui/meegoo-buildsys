@@ -143,7 +143,7 @@ Options:
 
 		# 判断参数
 		if check_args['-f'] == "":
-			self.patch_usage()
+			self.check_usage()
 			sys.exit(1)
 
 		return check_args
