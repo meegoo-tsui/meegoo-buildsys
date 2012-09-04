@@ -28,6 +28,8 @@ class patch_repos:
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## The constructor.
 	def __init__(self):
+		## 当前section的ini参数
+		self.ini_args   = {}
 		## patch 参数字典
 		self.patch_args = {}
 		## 源码路径
@@ -133,14 +135,14 @@ class patch_repos:
 		for i in patch_list:
 			if i == "":
 				continue
-			name = self.out_path + "/" + self.patch_args['-r'] + "-" + i.replace("/","_")
+			name = self.out_path + "/" + self.ini_args[glb.source_repos] + "-" + i.replace("/","_")
 			cmd.do(patch_cmd['diff'] + " " + i + " > " + name + glb.patch_filetype)
 
 		# 生成未托管文件补丁
 		patch_list = out_untrack.split("\n")
 		printf.status("Untrack files: " + str(len(patch_list) - 1))
 		for i in patch_list:
-			if i == "" or i.find(self.flag) != -1:
+			if i == "" or i.find(glb.patch_flag) != -1:
 				continue
 			name = self.out_path + "/" + "git-" + i.replace("/","_")
 			cmd.tryit("git diff /dev/null " + i + " > " + name + glb.patch_filetype)
@@ -156,6 +158,7 @@ class patch_repos:
 		printf.status("patch ...")
 		# patch all projects
 		for i in build_ini.list_of_dict:
+			self.ini_args = i # 保存当前section的ini参数
 			printf.silence("patch project: " + i[glb.project_name])
 			# 设置源码路径
 			if not i.has_key(glb.source_path):

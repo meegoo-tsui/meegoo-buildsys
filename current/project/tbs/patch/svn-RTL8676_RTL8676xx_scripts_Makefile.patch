@@ -1,0 +1,12 @@
+Index: RTL8676/RTL8676xx/scripts/Makefile
+===================================================================
+--- RTL8676/RTL8676xx/scripts/Makefile	(revision 15364)
++++ RTL8676/RTL8676xx/scripts/Makefile	(working copy)
+@@ -26,6 +26,7 @@
+ 
+ zconf.tab.o: lex.zconf.c zconf.hash.c
+ mconf: $(mconf-objs)
++	$(CC) $(mconf-objs) -lncursesw -o mconf
+ conf:  $(conf-objs)
+ clean:
+ 	rm -f $(mconf-objs) $(OBJS) $(conf-objs) $(kxgettext-objs)
