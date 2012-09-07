@@ -27,6 +27,7 @@ Options:
 -c           make clean
 -m           make
 -i           make install
+-x           make others,此参数只能唯一存在
 default      make clean, make, make install
 ''')
 
@@ -35,14 +36,14 @@ default      make clean, make, make install
 	def build_args(self):
 		printf.status("parse args ...")
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hcmi", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hcmix:", ["help"])
 		except getopt.GetoptError as err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.build_usage()
 			sys.exit(1)
 
 		## build参数字典
-		build_args = {'-c':0, '-m':0, '-i':0} # 默认为非法参数
+		build_args = {'-c':0, '-m':0, '-i':0, '-x':''} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.build_usage()
@@ -53,6 +54,8 @@ default      make clean, make, make install
 				build_args[o] = 1
 			elif o == "-i":
 				build_args[o] = 1
+			elif o == "-x":
+				build_args[o] = ' '.join(str(n) for n in sys.argv[2:])
 			else:
 				assert False, "unhandled option"
 				self.build_usage()

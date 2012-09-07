@@ -3,11 +3,14 @@
 # config env for build
 #   meegoo tsui, 2012-09-04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# 需要安装包:
+# subversion git flex g++ gawk zlib1g-dev libncurses5-dev
+# libncurses5-dev libncursesw5-dev
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 得到主机版本
 ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# $(SRC_DIR)/RTL8676/RTL8676xx/src/opensource/ppp-pppoe/ppp-2.4.3/pppd/Makefile.linux - 123
 # 解决 -lcrypt 包含问题问题
 if [ "$ARCH" -eq "32" ]; then
 	echo "host - x86 32"
@@ -19,5 +22,26 @@ if [ "$ARCH" -eq "32" ]; then
 	fi
 else
 	echo "host - x86 64"
+fi
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# 解决权限问题
+if [ `whoami` == "root" -o -u `which chmod` ];then
+	echo "check chmod ok ..."
+else
+	sudo chmod u+s /bin/chmod
+fi
+if [ `whoami` == "root" -o -u `which mknod` ];then
+	echo "check mknod ok ..."
+else
+	sudo chmod u+s /bin/mknod
+fi
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# 解决执行权限问题
+if [ -x xxx ];then
+	echo $BUILD_PATH
+else
+	echo $BUILD_PATH
 fi
 

@@ -1,0 +1,20 @@
+Index: RTL8676xx/src/opensource/inadyn/inadyn-mt/src/config.h.in
+===================================================================
+--- RTL8676xx/src/opensource/inadyn/inadyn-mt/src/config.h.in	(revision 15424)
++++ RTL8676xx/src/opensource/inadyn/inadyn-mt/src/config.h.in	(working copy)
+@@ -135,13 +135,13 @@
+ #undef VERSION
+ 
+ /* Define to rpl_malloc if the replacement function should be used. */
+-#undef malloc
++//#undef malloc
+ 
+ /* Define to `int' if <sys/types.h> does not define. */
+ #undef pid_t
+ 
+ /* Define to rpl_realloc if the replacement function should be used. */
+-#undef realloc
++//#undef realloc
+ 
+ /* Define as `fork' if `vfork' does not work. */
+ #undef vfork

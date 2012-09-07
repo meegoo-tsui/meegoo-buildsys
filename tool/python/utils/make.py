@@ -26,6 +26,13 @@ class make:
 		self.build_args = {}
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## make others
+	def make_others(self, project_dict):
+		wfile.wmakefile(project_dict)
+		cmd.do("make others " + "prjs=\"" + self.build_args['-x'] + "\"")
+		return
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## make clean
 	def make_clean(self, project_dict):
 		wfile.wmakefile(project_dict)
@@ -60,9 +67,14 @@ class make:
 			# 缺省无参数 - clean、make、install
 			action_sum = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
 			
-			# patch action
+			# 执行相关make动作之前，先打上补丁
 			patch_repos.patch_args = {"-f":build_ini.ini, "-a":0}
 			patch_repos.do_patch()
+
+			# make others, 执行完后返回
+			if self.build_args['-x'] != '':
+				self.make_others(i)
+				return
 
 			# make clean
 			if self.build_args['-c'] == 1 or action_sum == 0:
