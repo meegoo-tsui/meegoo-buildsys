@@ -22,6 +22,7 @@ clean:
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 install:
+	install -d $(EXEC_DIR)
 	install $(BUILD_PATH)/build/romfs/*.bin $(EXEC_DIR)
 	install $(BUILD_PATH)/build/romfs/*.img $(EXEC_DIR)
 
