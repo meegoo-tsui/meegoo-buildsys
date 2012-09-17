@@ -75,6 +75,7 @@ Options:
              0 - do patch
              1 - undo patch
              2 - create patch
+-u           patch for untrack files, default without it
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -82,14 +83,14 @@ Options:
 	def patch_args(self):
 		printf.status("parse args ...")
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hf:a:", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hf:a:u", ["help"])
 		except getopt.GetoptError as err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.patch_usage()
 			sys.exit(1)
 
 		## patch参数字典，ini路径、patch动作
-		patch_args = {'-f':'', '-a':-1} # 默认为非法参数
+		patch_args = {'-f':'', '-a':-1, '-u':0} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.patch_usage()
@@ -98,6 +99,8 @@ Options:
 				patch_args[o] = a
 			elif o == "-a":
 				patch_args[o] = int(a)
+			elif o == "-u":
+				patch_args[o] = 1 # 需要对非托管文件打补丁
 			else:
 				assert False, "unhandled option"
 				self.patch_usage()

@@ -127,7 +127,11 @@ class patch_repos:
 				cmd.do("mv " + old_patchs + " " + patch_bak_path)
 
 		out_modify  = os.popen(patch_cmd['list_modify']).read()
-		out_untrack = os.popen(patch_cmd['list_untrack']).read()
+		# 判断是否需要对非托管文件打补丁
+		if self.patch_args['-u'] == 0:
+			out_untrack = ""
+		else:
+			out_untrack = os.popen(patch_cmd['list_untrack']).read()
 
 		# 生成修改文件补丁
 		patch_list = out_modify.split("\n")

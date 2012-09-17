@@ -1,6 +1,6 @@
 Index: scripts/Makefile
 ===================================================================
---- scripts/Makefile	(revision 21582)
+--- scripts/Makefile	(revision 21536)
 +++ scripts/Makefile	(working copy)
 @@ -26,6 +26,7 @@
  

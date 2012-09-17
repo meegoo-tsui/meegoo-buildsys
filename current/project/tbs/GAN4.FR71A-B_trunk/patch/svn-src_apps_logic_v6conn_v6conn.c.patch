@@ -1,0 +1,50 @@
+Index: src/apps/logic/v6conn/v6conn.c
+===================================================================
+--- src/apps/logic/v6conn/v6conn.c	(revision 21536)
++++ src/apps/logic/v6conn/v6conn.c	(working copy)
+@@ -1385,6 +1385,7 @@
+     const char *pszConnStat = NULL;
+     const char *pszCurConnStat = NULL;
+     const char *pszConnDevName = NULL;
++    const char *szPrefixInfo = NULL;
+     ST_PARA_VAL *pstAddrList = NULL;
+     ST_PARA_VAL *pstAddrListPos = NULL;
+     int iTmpConnStat = IPV6_CONN_STAT_DISCONNECTED;
+@@ -1447,6 +1448,12 @@
+     pszConnDevName = COMM_GetNodeValueEx(pszIp6ConnPath, 0, V6CONN_CONN_DEVNAME, FROM_CFG);
+     V6CONN_PTR_RETURN(pszConnDevName, TBS_FAILED, CALL_FUCTION_FAILED, "COMM_GetNodeValueEx");
+ 
++    /* 读取前缀节点路径名称 */
++    sprintf(szAddrListPath, "%s.%s", pszIp6ConnPath, V6CONN_PREFIX_INFO);
++    V6CONN_TRACE("path:%s\n",szAddrListPath);
++    szPrefixInfo = COMM_GetNodeValueEx(szAddrListPath, 0, V6CONN_SITE_PREFIX, FROM_CFG);
++    V6CONN_PTR_RETURN(szPrefixInfo, TBS_FAILED, CALL_FUCTION_FAILED, "COMM_GetNodeValueEx");
++
+     V6CONN_TRACE("Ip6ConnStatu Change, from %s to %s\n", pszCurConnStat, pszConnStat);
+     if (strcasecmp(pszCurConnStat, pszConnStat))
+     {
+@@ -1460,6 +1467,11 @@
+                                          "DeviceName", pszConnDevName);
+         V6CONN_RET_RETURN(iRet, CALL_FUCTION_FAILED, "COMM_MakeAndSendCustomMsg");
+ 
++        /*通知lanip6更新地址*/
++        iRet = COMM_MakeAndSendCustomMsg(MSG_IP6CONN_PREFIX_CHANGED, MID_V6CONN, MID_GRP_IP6LAN_PREFIX_CHANGED, 2,
++                                         "Path", pszIp6ConnPath,
++                                         "Prefix", szPrefixInfo);
++
+         /*更新连接状态到配置树*/
+         iRet = COMM_SetValueEx(pszIp6ConnPath, 0, V6CONN_CONN_STAT, pszConnStat);
+         V6CONN_RET_RETURN(iRet, CALL_FUCTION_FAILED, "COMM_SetValueEx");
+@@ -2390,6 +2402,12 @@
+                                           "IPv6AddressList.1.AddressingType", CACHE_CFG);
+     V6CONN_PTR_RETURN(pszAddrConfType, TBS_FAILED, CALL_FUCTION_FAILED, "COMM_GetNodeValueEx");
+ 
++    /*只有dhcp 方式才启用dhcp6c进程获取地址*/
++    if (strcasecmp(pszAddrConfType, "DHCP") )
++    {
++        return TBS_SUCCESS;
++    }
++
+     pszServiceType = COMM_GetNodeValueEx(pszIp6ConnPath, -1, V6CONN_SERVICE_LIST, CACHE_CFG);
+     V6CONN_PTR_RETURN(pszServiceType, TBS_FAILED, CALL_FUCTION_FAILED, "COMM_GetNodeValueEx");
+ 
