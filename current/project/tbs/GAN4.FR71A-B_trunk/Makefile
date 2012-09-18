@@ -22,9 +22,9 @@ clean:
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 install:
-	install -d $(EXEC_DIR)
-	install $(BUILD_PATH)/build/romfs/*.bin $(EXEC_DIR)
-	install $(BUILD_PATH)/build/romfs/*.img $(EXEC_DIR)
+	@echo "生成符号链接..."
+	rm -rf $(EXEC_DIR)
+	ln -s $(SRC_DIR)/build/romfs $(EXEC_DIR)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 others: config_env
