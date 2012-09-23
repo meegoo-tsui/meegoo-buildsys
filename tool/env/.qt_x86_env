@@ -1,4 +1,4 @@
-$BUILD_SYS_PATH/tool/shell/print_color.sh -y "[Set env for Qt x86]:"
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "Set env for Qt x86..."
 export QTDIR=/opt/qte-x86
 export QTINC=/opt/qte-x86/include
 export QTLIB=/opt/qte-x86/lib
@@ -14,6 +14,4 @@ $BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTLIB"
 substring=\/opt\/qte-???/bin:
 replacement=
 export PATH=/opt/qte-x86/bin:${PATH//$substring/$replacement}
-$BUILD_SYS_PATH/tool/shell/print_color.sh -y "PATH ="
-$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$PATH"
 

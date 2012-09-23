@@ -7,15 +7,17 @@
 #+   2012/07/09
 #+
 #+ 依赖包：
-#+   1. sudo apt-cache search "libcurl*"
-#+   2. sudo apt-get install libcurl4-gnutls-dev
-#+
+#+ 1. sudo apt-cache search "libcurl*"
+#+ 2. sudo apt-get install libcurl4-gnutls-dev
+#+ 3. sudo apt-get install libssl-dev
+#+ 4. sudo apt-get install libexpat-dev
+#+ 5. sudo apt-get install build-essential tcl8.4 tk8.4 gettext
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 源码位置
-GIT_PATH   = $(HOME)/work/open/git/git
+GIT_PATH   = $(HOME)/workspace/open/git/git
 
 # 版本
 VER        = v1.7.9.7

@@ -11,7 +11,7 @@ include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 源码位置
-SVN_PATH = $(HOME)/work/open/svn/doxygen-svn
+SVN_PATH = $(HOME)/workspace/open/svn/doxygen-svn
 
 # 安装路径
 PREFIX       = $(EXEC_DIR)
