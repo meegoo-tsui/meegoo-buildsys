@@ -1,0 +1,8 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# tbs env - ubuntu 12.04 x86
+# meegoo tsui, 2012-09-24
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+[需要安装包:]
+subversion git flex g++ gawk zlib1g-dev libncurses5-dev libncurses5-dev 
+libncursesw5-dev libattr1-dev libpng12-dev
+

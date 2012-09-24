@@ -3,10 +3,6 @@
 # config env for build
 #   meegoo tsui, 2012-09-04
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# 需要安装包:
-# subversion git flex g++ gawk zlib1g-dev libncurses5-dev
-# libncurses5-dev libncursesw5-dev
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 得到主机版本
 ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
