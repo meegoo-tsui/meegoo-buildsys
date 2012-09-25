@@ -9,7 +9,7 @@
 -include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-BUILD_PATH=$(SRC_DIR)/RTL8676xx
+BUILD_PATH=`readlink -f "$(SRC_DIR)/RTL8676xx"`
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: config_env
@@ -31,6 +31,12 @@ others: config_env
 	set -e; \
 	cd $(BUILD_PATH); \
 	make $(prjs)
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+logic:
+	set -e; \
+	cd $(BUILD_PATH); \
+	make logic_clean logic logic_install rootfs romfs
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 config_env:
