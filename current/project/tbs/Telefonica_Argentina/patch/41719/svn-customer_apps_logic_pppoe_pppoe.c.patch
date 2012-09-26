@@ -1,0 +1,15 @@
+Index: customer/apps/logic/pppoe/pppoe.c
+===================================================================
+--- customer/apps/logic/pppoe/pppoe.c	(revision 15771)
++++ customer/apps/logic/pppoe/pppoe.c	(working copy)
+@@ -3242,6 +3242,10 @@
+ #endif
+ 
+     PPPOE_TRACE2("ARRIVE \n\r");
++
++    PPPOE_TRACE2(ECHO_FLASH_RED"pszPath=%s\n"ECHO_NONE, pszPath);
++    PPPOE_TRACE2(ECHO_FLASH_RED"pszValue=%s\n"ECHO_NONE, pszValue);
++
+     PPPOE_TRACE2("arrive at PPPOE_CommitProcess\n\r [PPPOE: ] PATH: %s, value: %s \n\r", pszPath, pszValue);
+     /* 获取实例指引 */
+     iRet = sscanf(pszPath, PPPOE_WANDEV ".%lu." PPPOE_WANCONNDEV ".%lu." PPPOE_WANPPPCONN \
