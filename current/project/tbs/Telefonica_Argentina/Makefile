@@ -40,5 +40,5 @@ logic:
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 config_env:
-	BUILD_PATH=$(BUILD_PATH) ./config.sh
+	BUILD_PATH=$(BUILD_PATH) ../config.sh
 

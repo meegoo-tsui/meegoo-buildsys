@@ -1,0 +1,13 @@
+Index: scripts/lxdialog/Makefile
+===================================================================
+--- scripts/lxdialog/Makefile	(revision 2007)
++++ scripts/lxdialog/Makefile	(working copy)
+@@ -3,5 +3,7 @@
+ HOSTCC=gcc
+ CFLAGS += $(shell $(CONFIG_SHELL) $(check-lxdialog) -ccflags)
+ LDFLAGS += $(shell $(CONFIG_SHELL) $(check-lxdialog) -ldflags $(HOSTCC))
+-lxdialog:checklist.o menubox.o textbox.o yesno.o inputbox.o  util.o lxdialog.o msgbox.o
++lxdialog-objs = checklist.o menubox.o textbox.o yesno.o inputbox.o  util.o lxdialog.o msgbox.o
++lxdialog: $(lxdialog-objs)
++	$(HOSTCC) $(lxdialog-objs) -lncursesw -o lxdialog
+ 

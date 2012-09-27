@@ -1,0 +1,13 @@
+Index: Makefile
+===================================================================
+--- Makefile	(revision 2007)
++++ Makefile	(working copy)
+@@ -7,7 +7,7 @@
+ CONFIGED:= $(shell if [ -a .config ]; then echo yes; else echo no; fi)
+ ifeq (${CONFIGED}, yes)
+ include .config
+-all: subdirs rootfs romfs
++all: tools subdirs rootfs romfs
+ else
+ all: help
+ 	@exit 1

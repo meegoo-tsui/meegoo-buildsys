@@ -33,3 +33,12 @@ else
 	sudo chmod u+s /bin/mknod
 fi
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CURRENT=$PWD
+cd $BUILD_PATH
+echo "解决执行权限 - *.sh ..."
+find . -name "*.sh"    | xargs chmod +x
+echo "解决执行权限 - configure ..."
+find . -name configure | xargs chmod +x
+cd $CURRENT
+
