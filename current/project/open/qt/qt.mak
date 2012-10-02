@@ -7,7 +7,7 @@
 #+   2012/07/09
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Qt 源码位置
-QT_GIT_PATH   = $(HOME)/work/open/git/qt
+QT_GIT_PATH   = $(HOME)/workspace/open/git/qt
 # Qt 配置标志文件
 CONFIG_TOUCH  = config.touch
 # Qt 配置日志
