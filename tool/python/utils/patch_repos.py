@@ -162,7 +162,13 @@ class patch_repos:
 		printf.status("patch ...")
 		# patch all projects
 		for i in build_ini.list_of_dict:
-			self.ini_args = i # 保存当前section的ini参数
+			# 只为当前使用的section执行补丁动作
+			if self.patch_args.has_key("-p"):
+				if i[glb.project_name] != self.patch_args["-p"]:
+					continue
+
+			# 保存当前section的ini参数
+			self.ini_args = i
 			printf.silence("patch project: " + i[glb.project_name])
 			# 设置源码路径
 			if not i.has_key(glb.source_path):

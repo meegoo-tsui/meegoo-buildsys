@@ -29,13 +29,17 @@ class wfile:
 		fp = open(file_name, 'w')
 		printf.silence("file - " + file_name)
 
-		# 添加安装路径到makefile
-		if project_dict.has_key(glb.installe_path):
-			fp.write("# 安装路径\n" + "EXEC_DIR = " + project_dict[glb.installe_path] + "\n")
-		
+		# 添加项目名称到makefile
+		if project_dict.has_key(glb.project_name):
+			fp.write("# 项目名称\n" + "PROJECT = " + project_dict[glb.project_name] + "\n")
+
 		# 添加源码路径到makefile
 		if project_dict.has_key(glb.source_path):
 			fp.write("# 源码路径\n" + "SRC_DIR = " + project_dict[glb.source_path] + "\n")
+
+		# 添加安装路径到makefile
+		if project_dict.has_key(glb.installe_path):
+			fp.write("# 安装路径\n" + "EXEC_DIR = " + project_dict[glb.installe_path] + "\n")
 
 		# 添加补丁路径到makefile
 		if project_dict.has_key(glb.patch_path):

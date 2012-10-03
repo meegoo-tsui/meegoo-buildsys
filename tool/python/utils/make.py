@@ -68,9 +68,9 @@ class make:
 			action_sum = self.build_args['-c'] + self.build_args['-m'] + self.build_args['-i']
 			
 			# 执行相关make动作之前，先打上补丁
-			patch_repos.patch_args = {"-f":build_ini.ini, "-a":0}
+			patch_repos.patch_args = {"-f":build_ini.ini, "-p": i[glb.project_name], "-a":0}
 			patch_repos.do_patch()
-
+			
 			# make others, 执行完后返回
 			if self.build_args['-x'] != '':
 				self.make_others(i)
