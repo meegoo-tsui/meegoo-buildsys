@@ -12,7 +12,7 @@
 BUILD_PATH=`readlink -f "$(SRC_DIR)/RTL8676/RTL8676xx"`
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-all: config_env
+all:
 	cd $(BUILD_PATH); \
 	make
 
@@ -27,11 +27,7 @@ install:
 	ln -s $(BUILD_PATH)/build/romfs $(EXEC_DIR)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-others: config_env
+others:
 	cd $(BUILD_PATH); \
 	make $(prjs)
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-config_env:
-	BUILD_PATH=$(BUILD_PATH) ../config.sh
 

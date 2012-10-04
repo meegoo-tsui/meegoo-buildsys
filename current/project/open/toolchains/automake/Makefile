@@ -38,13 +38,6 @@ install:
 		cd $(SRC_DIR)/$(PROJECT)-build; \
 		make install; \
 	fi
-	@echo "生成软链接 ..."
-	if [ ! -d $(HOME)/.bin ]; then \
-		mkdir -p $(HOME)/.bin; \
-	fi
-	if [ ! -f $(HOME)/.bin/$(PROJECT) ]; then \
-		ln -s $(EXEC_DIR)/bin/automake $(HOME)/.bin/$(PROJECT); \
-	fi	
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 download:

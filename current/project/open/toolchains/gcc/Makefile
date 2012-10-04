@@ -38,16 +38,6 @@ install:
 		cd $(SRC_DIR)/$(PROJECT)-build; \
 		make install; \
 	fi
-	@echo "生成软链接 ..."
-	if [ ! -d $(HOME)/.bin ]; then \
-		mkdir -p $(HOME)/.bin; \
-	fi
-	if [ ! -f $(HOME)/.bin/gcc ]; then \
-		ln -s $(EXEC_DIR)/bin/gcc $(HOME)/.bin; \
-	fi	
-	if [ ! -f $(HOME)/.bin/g++ ]; then \
-		ln -s $(EXEC_DIR)/bin/g++ $(HOME)/.bin; \
-	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 download:

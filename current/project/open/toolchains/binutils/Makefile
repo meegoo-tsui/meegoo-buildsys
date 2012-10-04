@@ -38,7 +38,6 @@ install:
 		cd $(SRC_DIR)/$(PROJECT)-build; \
 		make tooldir=$(EXEC_DIR) install; \
 	fi
-	@echo "生成软链接 ..."
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 download:
