@@ -154,5 +154,38 @@ Options:
 
 		return check_args
 
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具svn.py或git.py的帮助信息。
+	def repos_usage(self, repos):
+		printf.printf(3, "Usage:\n" + repos + ".py " + "[options]")
+		printf.printf(3, '''
+Options:
+-h | --help  print help info
+-m           list modify files
+-d           list delete files
+-o           list others files
+''')
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具svn.py或git.py的解析参数。
+	def repos_args(self, repos):
+		try:
+			opts, args = getopt.getopt(sys.argv[1:], "hmdo", ["help"])
+		except getopt.GetoptError as err:
+			printf.warn(str(err)) # will print something like "option -a not recognized"
+			self.check_usage()
+			sys.exit(1)
+
+		## svn.py或git.py
+		repos_args = ""
+		for o, a in opts:
+			if   o in ("-h", "--help"):
+				self.repos_usage(repos)
+				sys.exit(1)
+			else:
+				repos_args = o
+
+		return repos_args
+	
 ## arg对象。
 arg = arg()

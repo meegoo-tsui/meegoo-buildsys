@@ -12,8 +12,8 @@ exe_path=$current_path # 执行清理路径
 function clean_help() 
 { 
 	echo -e "usage:"
-	echo -e "\tclean.py"
-	echo -e "\tclean.py -C $HOME"
+	echo -e "\tclean.sh"
+	echo -e "\tclean.sh -C $HOME"
 	exit 1
 }
 

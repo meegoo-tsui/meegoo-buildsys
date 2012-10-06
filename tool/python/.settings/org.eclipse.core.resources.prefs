@@ -13,4 +13,6 @@ encoding//utils/wfile.py=utf-8
 encoding/build.py=utf-8
 encoding/check.py=utf-8
 encoding/config_buildsys_env.py=utf-8
+encoding/git.py=utf-8
 encoding/patch.py=utf-8
+encoding/svn.py=utf-8
