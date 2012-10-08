@@ -19,9 +19,9 @@ ln -s $TOOLCHAINS/automake/automake-1.8/bin/automake $TBSBIN/automake-1.8
 ln -s $TOOLCHAINS/automake/automake-1.9/bin/automake $TBSBIN/automake-1.9
 
 $BUILD_SYS_PATH/tool/shell/print_color.sh -y "软链接 - gcc"
-ln -s $TOOLCHAINS/gcc/gcc-4.1.2/bin/gcc $TBSBIN/gcc
-ln -s $TOOLCHAINS/gcc/gcc-4.1.2/bin/g++ $TBSBIN/g++
-ln -s $TOOLCHAINS/gcc/gcc-4.1.2/bin/gcc $TBSBIN/cc
+ln -s $TOOLCHAINS/gcc/gcc-4.1.1/bin/gcc $TBSBIN/gcc
+ln -s $TOOLCHAINS/gcc/gcc-4.1.1/bin/g++ $TBSBIN/g++
+ln -s $TOOLCHAINS/gcc/gcc-4.1.1/bin/gcc $TBSBIN/cc
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 export PATH="$TBSBIN:$PATH"

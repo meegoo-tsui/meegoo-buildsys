@@ -11,7 +11,7 @@
 # 安装包路径及文件名
 TAR_PATH = $(HOME)/workspace/open/tar
 TAR_FILE = $(TAR_PATH)/$(PROJECT).tar.bz2
-URL      = http://ftp.gnu.org/gnu/gcc/gcc-4.1.2/$(PROJECT).tar.bz2
+URL      = http://ftp.gnu.org/gnu/gcc/$(PROJECT)/$(PROJECT).tar.bz2
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: download
