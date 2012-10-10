@@ -1,0 +1,30 @@
+Index: apps/html/standard/page/wancfg.js
+===================================================================
+--- apps/html/standard/page/wancfg.js	(revision 16019)
++++ apps/html/standard/page/wancfg.js	(revision 16020)
+@@ -258,8 +258,9 @@
+ 				{
+ 				    value_array[i][7] = ((G_WanConns[i][7] == 'Disconnected' || G_WanConns[i][7] == 'LinkLocalConnected') && (G_WanConns[i][1] == 'Disconnected')) ? data_language.dynamic.disconnection : data_language.dynamic.connection ; //Status
+ 				}
++				// IPv4_6
+ 				value_array[i][9] = G_WanConns[i][0].indexOf('PPP') > 0 ? 
+-						  '<input type="button" value=' + ((G_WanConns[i][7] == 'Disconnected' || G_WanConns[i][7] == 'LinkLocalConnected') ? data_language.dynamic.connect: data_language.dynamic.disconnect ) + ' onclick="ctrlConnEnable(' + i + ')" '
++						  '<input type="button" value=' + ((G_WanConns[i][1] == 'Connected' || G_WanConns[i][7] == 'GlobalConnected') ? data_language.dynamic.disconnect: data_language.dynamic.connect ) + ' onclick="ctrlConnEnable(' + i + ')" '
+ 							+(G_WanConns[i][4] == 'Manual' ? '' : 'disabled') + '>' : '-';
+ 			}
+ 	`?>
+@@ -368,11 +369,12 @@
+ 			return false;
+ 		}
+ 	} else {
+-		if(G_WanConns[_i] && G_WanConns[_i][7] == 'Disconnected')
++		if(G_WanConns[_i] && G_WanConns[_i][1] == 'Connected') // Judge when enable IPv4_6
++			st_conn = 'Disconnect';
++		else if(G_WanConns[_i] && G_WanConns[_i][7] == 'Disconnected')
+ 			st_conn = 'Connect';
+ 		else
+ 			st_conn = 'Disconnect';
+-
+ 	}
+ 	
+ 	$H({
