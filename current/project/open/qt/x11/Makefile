@@ -7,11 +7,10 @@
 #+   2012/07/07
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 include buildsys.mak
+include ../qt.mak
 
 # x11 配置选项
-QT_CONFIG   = ./configure -v -prefix $(EXEC_DIR) -qvfb
-
-include ../qt.mak
+QT_CONFIG   = $(QT_GIT_PATH)/configure -v -prefix $(EXEC_DIR) -qvfb
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: all_base

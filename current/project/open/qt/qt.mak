@@ -47,8 +47,7 @@ copy:
 		git clone git://gitorious.org/qt/qt.git $(QT_GIT_PATH); \
 	fi; \
 	if [ ! -d $(SRC_DIR) ]; then \
-		echo "复制Qt源码..."; \
-		cp -r $(QT_GIT_PATH) $(SRC_DIR); \
+		mkdir -p $(SRC_DIR); \
 	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

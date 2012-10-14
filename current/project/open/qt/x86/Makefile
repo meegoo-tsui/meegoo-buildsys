@@ -7,9 +7,10 @@
 #+   2012/07/07
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 include buildsys.mak
+include ../qt.mak
 
 # x86 64 配置选项
-QT_CONFIG = ./configure \
+QT_CONFIG = $(QT_GIT_PATH)/configure \
                 -prefix $(EXEC_DIR) \
                 -embedded x86_64 \
                 -platform  qws/linux-x86_64-g++ \
@@ -18,9 +19,6 @@ QT_CONFIG = ./configure \
                 -no-largefile -no-accessibility -no-openssl \
                 -qt-mouse-pc -qt-mouse-qvfb -qt-mouse-linuxtp -qt-mouse-linuxinput -plugin-mouse-linuxtp -plugin-mouse-pc -fast \
                 -plugin-gfx-qvfb
-
-include ../qt.mak
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: all_base
 
@@ -31,6 +29,6 @@ clean: clean_base
 install: install_base
 	@if [ ! -f $(EXEC_DIR)/bin/qvfb ]; then \
 		echo "创建qvfb链接 ..."; \
-		sudo ln -s /opt/qte-x11/bin/qvfb $(EXEC_DIR)/bin/qvfb; \
+		sudo ln -s $(EXEC_DIR)/../qte-x11/bin/qvfb $(EXEC_DIR)/bin/qvfb; \
 	fi
 
