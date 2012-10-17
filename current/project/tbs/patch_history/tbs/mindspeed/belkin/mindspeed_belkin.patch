@@ -1,0 +1,640 @@
+Index: product/MINDSPEED_C1000_V1.1/defconfig
+===================================================================
+--- product/MINDSPEED_C1000_V1.1/defconfig	(revision 2022)
++++ product/MINDSPEED_C1000_V1.1/defconfig	(working copy)
+@@ -1,4 +1,4 @@
+-#
++ï»¿#
+ # Automatically generated make config: don't edit
+ # Linux kernel version: 
+ # Fri Mar 25 09:28:46 2011
+@@ -73,7 +73,7 @@
+ # CONFIG_TBS_APPS_DEBUG_PUBLIC_SCHEDULE is not set
+ # CONFIG_TBS_GDB_DEBUG is not set
+ # CONFIG_TBS_SUPPORT_SWITCH_VLAN is not set
+-# CONFIG_TBS_SUPPORT_IPV6 is not set
++CONFIG_TBS_SUPPORT_IPV6=y
+ CONFIG_APPS=y
+ CONFIG_APPS_SSAP=y
+ CONFIG_APPS_SSAP_BUTTON=y
+@@ -95,22 +95,22 @@
+ CONFIG_APPS_LOGIC_WDS=y
+ CONFIG_APPS_LOGIC_PPPOE=y
+ CONFIG_APPS_LOGIC_WAN_STATISTICS=y
+-# CONFIG_APPS_LOGIC_IPV6 is not set
+-# CONFIG_APPS_LOGIC_FIREWALL_IPV6 is not set
+-# CONFIG_APPS_LOGIC_SUPPORT_PPPV6 is not set
++CONFIG_APPS_LOGIC_IPV6=y
++CONFIG_APPS_LOGIC_FIREWALL_IPV6=y
++CONFIG_APPS_LOGIC_SUPPORT_PPPV6=y
+ CONFIG_APP_LOGIC_PPPOU=y
+ CONFIG_APPS_LOGIC_VPN=y
+ CONFIG_APPS_LOGIC_LAN=y
+ CONFIG_APPS_LOGIC_LAN_VLAN=y
+ CONFIG_APPS_LOGIC_DNS=y
+ CONFIG_APPS_LOGIC_DDNS=y
+-# CONFIG_APPS_LOGIC_DHCP6S is not set
++CONFIG_APPS_LOGIC_DHCP6S=y
+ # CONFIG_APPS_LOGIC_WANSELECT is not set
+ CONFIG_APPS_LOGIC_WAN=y
+ # CONFIG_APPS_LOGIC_INTERNET_LED is not set
+ CONFIG_APPS_LOGIC_WAN_BIND=y
+-# CONFIG_APPS_LOGIC_RADVD is not set
+-# CONFIG_APPS_LOGIC_V6CONN is not set
++CONFIG_APPS_LOGIC_RADVD=y
++CONFIG_APPS_LOGIC_V6CONN=y
+ CONFIG_APPS_LOGIC_IPCONN=y
+ CONFIG_APPS_LOGIC_DHCPC_OPTION15=y
+ CONFIG_APPS_LOGIC_DHCPC_OPTION42=y
+@@ -127,7 +127,7 @@
+ # CONFIG_APPS_LOGIC_DIAG is not set
+ CONFIG_APPS_LOGIC_DHCPS=y
+ CONFIG_APPS_LOGIC_DHCPS_FILTER=y
+-# CONFIG_APPS_LOGIC_DHCP6S_FILTER is not set
++CONFIG_APPS_LOGIC_DHCP6S_FILTER=y
+ CONFIG_APPS_LOGIC_DHCPS_OPTION125=y
+ # CONFIG_APPS_LOGIC_DHCPR is not set
+ # CONFIG_APPS_LOGIC_PORTTRIGGER is not set
+@@ -145,7 +145,7 @@
+ # CONFIG_APPS_LOGIC_PPPOE_QOS is not set
+ # CONFIG_APPS_LOGIC_WLAN_QOS is not set
+ CONFIG_APPS_LOGIC_SROUTE=y
+-# CONFIG_APPS_LOGIC_V6SROUTE is not set
++CONFIG_APPS_LOGIC_V6SROUTE=y
+ CONFIG_APPS_LOGIC_DROUTE=y
+ CONFIG_APPS_LOGIC_PROUTE=y
+ CONFIG_APPS_LOGIC_FIREWALL=y
+@@ -169,11 +169,11 @@
+ # CONFIG_APPS_LOGIC_FPP is not set
+ CONFIG_APPS_LOGIC_AUTOUPDATE=y
+ CONFIG_APPS_LOGIC_WATCHDOG=y
+-# CONFIG_APPS_IPV6 is not set
+-# CONFIG_APPS_IPV6_RAMON is not set
+-# CONFIG_APPS_IPV6_IP6MON is not set
+-# CONFIG_APPS_IPV6_IP6AAC is not set
+-# CONFIG_APPS_IPV6_IFIPV6 is not set
++CONFIG_APPS_IPV6=y
++CONFIG_APPS_IPV6_RAMON=y
++CONFIG_APPS_IPV6_IP6MON=y
++CONFIG_APPS_IPV6_IP6AAC=y
++CONFIG_APPS_IPV6_IFIPV6=y
+ CONFIG_APPS_CLI=y
+ 
+ #
+@@ -606,7 +606,7 @@
+ #
+ # Networking Utilities
+ #
+-# CONFIG_FEATURE_IPV6 is not set
++CONFIG_FEATURE_IPV6=y
+ # CONFIG_VERBOSE_RESOLUTION_ERRORS is not set
+ CONFIG_ARP=y
+ CONFIG_ARPING=y
+@@ -639,7 +639,7 @@
+ # CONFIG_FEATURE_NETSTAT_WIDE is not set
+ # CONFIG_NSLOOKUP is not set
+ CONFIG_PING=y
+-# CONFIG_PING6 is not set
++CONFIG_PING6=y
+ CONFIG_FEATURE_FANCY_PING=y
+ CONFIG_ROUTE=y
+ # CONFIG_TELNET is not set
+@@ -746,17 +746,17 @@
+ # CONFIG_UDPSVD is not set
+ CONFIG_OPENSOURCE_BRCTL=y
+ CONFIG_OPENSOURCE_IPUTILS=y
+-# CONFIG_OPENSOURCE_IPUTILS_PING6 is not set
+-# CONFIG_OPENSOURCE_IPUTILS_TRACEROUTE6 is not set
++CONFIG_OPENSOURCE_IPUTILS_PING6=y
++CONFIG_OPENSOURCE_IPUTILS_TRACEROUTE6=y
+ CONFIG_OPENSOURCE_OPENSSL=y
+ # CONFIG_OPENSOURCE_OPENSSL_097 is not set
+ # CONFIG_OPENSOURCE_OPENSSL_097_EAPTLS is not set
+ CONFIG_OPENSOURCE_OPENSSL_098=y
+ CONFIG_OPENSOURCE_HTTPD=y
+ CONFIG_OPENSOURCE_HTTPD_SSL=y
+-# CONFIG_OPENSOURCE_HTTPD_IPV6 is not set
++CONFIG_OPENSOURCE_HTTPD_IPV6=y
+ CONFIG_OPENSOURCE_PPPD=y
+-# CONFIG_OPENSOURCE_PPPD_SUPPORT_IPV6 is not set
++CONFIG_OPENSOURCE_PPPD_SUPPORT_IPV6=y
+ CONFIG_OPENSOURCE_PPPDS=y
+ CONFIG_OPENSOURCE_DPROXY=y
+ CONFIG_OPENSOURCE_IPTABLES=y
+@@ -884,11 +884,11 @@
+ # CONFIG_OPENSOURCE_ATM is not set
+ CONFIG_OPENSOURCE_ETHTOOL=y
+ CONFIG_OPENSOURCE_UDHCP=y
+-# CONFIG_OPENSOURCE_DHCPV6 is not set
+-# CONFIG_OPENSOURCE_DHCPV6_SERVER is not set
+-# CONFIG_OPENSOURCE_DHCPV6_CLIENT is not set
+-# CONFIG_OPENSOURCE_RADVD is not set
+-# CONFIG_OPENSOURCE_RADVDUMP is not set
++CONFIG_OPENSOURCE_DHCPV6=y
++CONFIG_OPENSOURCE_DHCPV6_SERVER=y
++CONFIG_OPENSOURCE_DHCPV6_CLIENT=y
++CONFIG_OPENSOURCE_RADVD=y
++CONFIG_OPENSOURCE_RADVDUMP=y
+ CONFIG_OPENSOURCE_UPDATEDD=y
+ CONFIG_OPENSOURCE_DHCPR=y
+ # CONFIG_OPENSOURCE_NBSMTP is not set
+@@ -1331,28 +1331,28 @@
+ # IP: Virtual Server Configuration
+ #
+ # CONFIG_IP_VS is not set
+-# CONFIG_IPV6 is not set
++CONFIG_IPV6=y
+ # CONFIG_IPV6_PRIVACY is not set
+-# CONFIG_IPV6_ROUTER_PREF is not set
++CONFIG_IPV6_ROUTER_PREF=y
+ # CONFIG_IPV6_ROUTE_INFO is not set
+-# CONFIG_INET6_AH is not set
+-# CONFIG_INET6_ESP is not set
+-# CONFIG_INET6_IPSEC_OFFLOAD is not set
+-# CONFIG_INET6_IPCOMP is not set
++CONFIG_INET6_AH=y
++CONFIG_INET6_ESP=y
++CONFIG_INET6_IPSEC_OFFLOAD=y
++CONFIG_INET6_IPCOMP=y
+ # CONFIG_IPV6_MIP6 is not set
+-# CONFIG_INET6_XFRM_TUNNEL is not set
+-# CONFIG_INET6_TUNNEL is not set
+-# CONFIG_INET6_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET6_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET6_XFRM_MODE_BEET is not set
++CONFIG_INET6_XFRM_TUNNEL=y
++CONFIG_INET6_TUNNEL=y
++CONFIG_INET6_XFRM_MODE_TRANSPORT=y
++CONFIG_INET6_XFRM_MODE_TUNNEL=y
++CONFIG_INET6_XFRM_MODE_BEET=y
+ # CONFIG_INET6_XFRM_MODE_ROUTEOPTIMIZATION is not set
+-# CONFIG_IPV6_SIT is not set
+-# CONFIG_IPV6_TUNNEL is not set
+-# CONFIG_IPV6_MULTIPLE_TABLES is not set
+-# CONFIG_IPV6_SUBTREES is not set
+-# CONFIG_IPV6_ROUTE_FWMARK is not set
+-# CONFIG_IPV6_MROUTE is not set
+-# CONFIG_IPV6_PIMSM_V2 is not set
++CONFIG_IPV6_SIT=y
++CONFIG_IPV6_TUNNEL=y
++CONFIG_IPV6_MULTIPLE_TABLES=y
++CONFIG_IPV6_SUBTREES=y
++CONFIG_IPV6_ROUTE_FWMARK=y
++CONFIG_IPV6_MROUTE=y
++CONFIG_IPV6_PIMSM_V2=y
+ # CONFIG_QDISC_DISABLE is not set
+ # CONFIG_NETWORK_SECMARK is not set
+ CONFIG_NETFILTER=y
+@@ -1490,28 +1490,28 @@
+ #
+ # IPv6: Netfilter Configuration (EXPERIMENTAL)
+ #
+-# CONFIG_NF_CONNTRACK_IPV6 is not set
++CONFIG_NF_CONNTRACK_IPV6=y
+ # CONFIG_IP6_NF_QUEUE is not set
+-# CONFIG_IP6_NF_IPTABLES is not set
+-# CONFIG_IP6_NF_MATCH_RT is not set
++CONFIG_IP6_NF_IPTABLES=y
++CONFIG_IP6_NF_MATCH_RT=y
+ # CONFIG_IP6_NF_MATCH_OPTS is not set
+-# CONFIG_IP6_NF_MATCH_FL is not set
+-# CONFIG_IP6_NF_MATCH_TC is not set
+-# CONFIG_IP6_NF_MATCH_FRAG is not set
+-# CONFIG_IP6_NF_MATCH_HL is not set
++CONFIG_IP6_NF_MATCH_FL=y
++CONFIG_IP6_NF_MATCH_TC=y
++CONFIG_IP6_NF_MATCH_FRAG=y
++CONFIG_IP6_NF_MATCH_HL=y
+ # CONFIG_IP6_NF_MATCH_OWNER is not set
+-# CONFIG_IP6_NF_MATCH_IPV6HEADER is not set
+-# CONFIG_IP6_NF_MATCH_AH is not set
++CONFIG_IP6_NF_MATCH_IPV6HEADER=y
++CONFIG_IP6_NF_MATCH_AH=y
+ # CONFIG_IP6_NF_MATCH_MH is not set
+ # CONFIG_IP6_NF_MATCH_EUI64 is not set
+-# CONFIG_IP6_NF_FILTER is not set
+-# CONFIG_IP6_NF_TARGET_LOG is not set
+-# CONFIG_IP6_NF_TARGET_REJECT is not set
+-# CONFIG_IP6_NF_MANGLE is not set
+-# CONFIG_IP6_NF_TARGET_IMQ is not set
+-# CONFIG_IP6_NF_TARGET_TC is not set
+-# CONFIG_IP6_NF_TARGET_HL is not set
+-# CONFIG_IP6_NF_RAW is not set
++CONFIG_IP6_NF_FILTER=y
++CONFIG_IP6_NF_TARGET_LOG=y
++CONFIG_IP6_NF_TARGET_REJECT=y
++CONFIG_IP6_NF_MANGLE=y
++CONFIG_IP6_NF_TARGET_IMQ=y
++CONFIG_IP6_NF_TARGET_TC=y
++CONFIG_IP6_NF_TARGET_HL=y
++CONFIG_IP6_NF_RAW=y
+ # CONFIG_IP6_NF_TARGET_ROUTE is not set
+ #
+ # Bridge: Netfilter Configuration
+Index: src/kernel/linux-2.6.21.1-MindSpeed/net/core/dev.c
+===================================================================
+--- src/kernel/linux-2.6.21.1-MindSpeed/net/core/dev.c	(revision 2022)
++++ src/kernel/linux-2.6.21.1-MindSpeed/net/core/dev.c	(working copy)
+@@ -1847,6 +1847,15 @@
+ 	if (!orig_dev)
+ 		return NET_RX_DROP;
+ 
++
++    /* È¥µôÊý¾Ý²»¶ÔÆä°ü */
++    printk("netif_receive_skb.skb->data - %p\n", skb->data);
++    #if 0
++    if((__u32)(skb->data)%4 !=0){
++        return NET_RX_DROP;
++    }
++    #endif
++    
+ 	__get_cpu_var(netdev_rx_stat).total++;
+ 
+ 	skb->h.raw = skb->nh.raw = skb->data;
+Index: src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/exthdrs.c
+===================================================================
+--- src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/exthdrs.c	(revision 2022)
++++ src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/exthdrs.c	(working copy)
+@@ -546,6 +546,8 @@
+ 	ipv6_addr_copy(&skb->nh.ipv6h->daddr, &daddr);
+ 
+ 	dst_release(xchg(&skb->dst, NULL));
++
++    printk("\n\n##### ipv6_rthdr_rcv jump to ip6_route_input");
+ 	ip6_route_input(skb);
+ 	if (skb->dst->error) {
+ 		skb_push(skb, skb->data - skb->nh.raw);
+Index: src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/route.c
+===================================================================
+--- src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/route.c	(revision 2022)
++++ src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/route.c	(working copy)
+@@ -722,19 +722,52 @@
+ 	return rt;
+ }
+ 
++
++static void DumpPacket(struct sk_buff *skb)
++{
++
++    int i=0;
++
++    printk("\n###############################################\n\n");
++    for(i=0;i<skb->len;i++)
++    {
++             if( i%16 == 0)
++                     printk("\n0x%08x:",i);
++             if( i%4 == 0)
++                     printk(" ");
++             printk("%02x ",skb->data[i]);
++     }
++     printk("\n###############################################\n\n");
++}
++
+ void ip6_route_input(struct sk_buff *skb)
+ {
+ 	struct ipv6hdr *iph = skb->nh.ipv6h;
+ 	int flags = RT6_LOOKUP_F_HAS_SADDR;
++
++    printk("\nip6_route_input - restart???\n");
++    printk("skb->data            - %p\n", skb->data);
++    printk("skb->nh.ipv6h->daddr - %p\n\n", &(skb->nh.ipv6h->daddr));
++    DumpPacket(skb);
++
++    #if 0
++    printk("\n\n## ip6_route_input");
++    printk("skb           @ [%08x]\n", skb);
++    printk("skb->nh.ipv6h @ [%08x]\n", skb->nh.ipv6h);
++    printk("skb->dev      @ [%08x]\n", skb->dev);
++    printk("iph->saddr    @ [%08x]\n", &(iph->saddr));
++    printk("iph->daddr    @ [%08x]\n", &(iph->daddr));
++    #endif
++    
+ 	struct flowi fl = {
+ 		.iif = skb->dev->ifindex,
+ 		.nl_u = {
+-			.ip6_u = {
+-				.daddr = iph->daddr,
+-				.saddr = iph->saddr,
+-				.flowlabel = (* (__be32 *) iph)&IPV6_FLOWINFO_MASK,
+-			},
++		.ip6_u = {
++		.daddr = iph->daddr,
++		.saddr = iph->saddr,
++		.flowlabel = (* (__be32 *) iph)&IPV6_FLOWINFO_MASK,
+ 		},
++	},
+ #ifdef CONFIG_IPV6_ROUTE_FWMARK
+ 		.mark = skb->rnfmark,
+ #else
+@@ -747,6 +780,7 @@
+ 		flags |= RT6_LOOKUP_F_IFACE;
+ 
+ 	skb->dst = fib6_rule_lookup(&fl, flags, ip6_pol_route_input);
++
+ }
+ 
+ static struct rt6_info *ip6_pol_route_output(struct fib6_table *table,
+Index: src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/ip6_input.c
+===================================================================
+--- src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/ip6_input.c	(revision 2022)
++++ src/kernel/linux-2.6.21.1-MindSpeed/net/ipv6/ip6_input.c	(working copy)
+@@ -50,8 +50,10 @@
+ inline int ip6_rcv_finish( struct sk_buff *skb)
+ {
+ 	if (skb->dst == NULL)
++	{
+ 		ip6_route_input(skb);
+-
++	}
++    
+ 	return dst_input(skb);
+ }
+ 
+Index: src/opensource/radvd/radvd-1.5/config.log
+===================================================================
+--- src/opensource/radvd/radvd-1.5/config.log	(revision 2022)
++++ src/opensource/radvd/radvd-1.5/config.log	(working copy)
+@@ -4,17 +4,17 @@
+ It was created by configure, which was
+ generated by GNU Autoconf 2.59.  Invocation command line was
+ 
+-  $ ./configure --prefix=/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist --host=arm-linux-uclibc --sysconfdir=/etc CFLAGS=-Os
++  $ ./configure --prefix=/home/meegoo/workspace/mindspeed/build/tmpdist --host=arm-linux-uclibc --sysconfdir=/etc CFLAGS=-Os
+ 
+ ## --------- ##
+ ## Platform. ##
+ ## --------- ##
+ 
+-hostname = soft
++hostname = rhel5.1
+ uname -m = i686
+-uname -r = 2.6.18-8.el5xen
++uname -r = 2.6.18-53.el5xen
+ uname -s = Linux
+-uname -v = #1 SMP Fri Jan 26 14:42:21 EST 2007
++uname -v = #1 SMP Wed Oct 10 17:06:12 EDT 2007
+ 
+ /usr/bin/uname -p = unknown
+ /bin/uname -X     = unknown
+@@ -27,19 +27,19 @@
+ /usr/bin/oslevel       = unknown
+ /bin/universe          = unknown
+ 
++PATH: /usr/lib/qt-3.3/bin
+ PATH: /usr/kerberos/bin
+ PATH: /usr/local/bin
+ PATH: /bin
+ PATH: /usr/bin
+-PATH: /usr/local/jungo/bin
+-PATH: /home/dslpl3/liubingwei/bin
+-PATH: /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/tools
++PATH: /home/meegoo/bin
++PATH: /home/meegoo/workspace/mindspeed/tools
+ PATH: /opt/tbs_toolchains/arm-2.6.21/bin/
+-PATH: /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/tools
++PATH: /home/meegoo/workspace/mindspeed/tools
+ PATH: /opt/tbs_toolchains/arm-2.6.21/bin/
+-PATH: /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/tools
++PATH: /home/meegoo/workspace/mindspeed/tools
+ PATH: /opt/tbs_toolchains/arm-2.6.21/bin/
+-PATH: /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/tools
++PATH: /home/meegoo/workspace/mindspeed/tools
+ PATH: /opt/tbs_toolchains/arm-2.6.21/bin/
+ 
+ 
+@@ -227,7 +227,7 @@
+ configure:3440: arm-linux-uclibc-gcc -o conftest -Os   conftest.c   >&5
+ /opt/tbs_toolchains/arm-2.6.21/arm-linux-uclibc/sys-root/usr/lib/crt1.o(.text+0x4c): In function `_start':
+ crt1.S: undefined reference to `main'
+-/tmp/ccmLxtbN.o(.text+0xb7c): In function `yylex':
++/tmp/ccWQCbCM.o(.text+0xb7c): In function `yylex':
+ conftest.c: undefined reference to `yywrap'
+ collect2: ld returned 1 exit status
+ configure:3446: $? = 1
+@@ -2590,7 +2590,7 @@
+   CONFIG_COMMANDS = 
+   $ ./config.status 
+ 
+-on soft
++on rhel5.1
+ 
+ config.status:721: creating Makefile
+ config.status:825: creating config.h
+@@ -2678,14 +2678,14 @@
+ ## Output variables. ##
+ ## ----------------- ##
+ 
+-ACLOCAL='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run aclocal-1.9'
++ACLOCAL='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run aclocal-1.9'
+ AMDEPBACKSLASH='\'
+ AMDEP_FALSE='#'
+ AMDEP_TRUE=''
+-AMTAR='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run tar'
+-AUTOCONF='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoconf'
+-AUTOHEADER='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoheader'
+-AUTOMAKE='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run automake-1.9'
++AMTAR='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run tar'
++AUTOCONF='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoconf'
++AUTOHEADER='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoheader'
++AUTOMAKE='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run automake-1.9'
+ AWK='awk'
+ CC='arm-linux-uclibc-gcc'
+ CCDEPMODE='depmode=gcc3'
+@@ -2714,7 +2714,7 @@
+ LN='/bin/ln'
+ LOG_FACILITY='LOG_DAEMON'
+ LTLIBOBJS=''
+-MAKEINFO='${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run makeinfo'
++MAKEINFO='${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run makeinfo'
+ OBJEXT='o'
+ PACKAGE='radvd'
+ PACKAGE_BUGREPORT=''
+@@ -2758,14 +2758,14 @@
+ host_vendor='unknown'
+ includedir='${prefix}/include'
+ infodir='${prefix}/info'
+-install_sh='/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/install-sh'
++install_sh='/home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/install-sh'
+ libdir='${exec_prefix}/lib'
+ libexecdir='${exec_prefix}/libexec'
+ localstatedir='${prefix}/var'
+ mandir='${prefix}/man'
+ mkdir_p='mkdir -p --'
+ oldincludedir='/usr/include'
+-prefix='/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist'
++prefix='/home/meegoo/workspace/mindspeed/build/tmpdist'
+ program_transform_name='s,x,x,'
+ sbindir='${exec_prefix}/sbin'
+ sharedstatedir='${prefix}/com'
+Index: src/opensource/radvd/radvd-1.5/config.status
+===================================================================
+--- src/opensource/radvd/radvd-1.5/config.status	(revision 2022)
++++ src/opensource/radvd/radvd-1.5/config.status	(working copy)
+@@ -308,7 +308,7 @@
+ ac_cs_version="\
+ config.status
+ configured by ./configure, generated by GNU Autoconf 2.59,
+-  with options \"'--prefix=/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc'\"
++  with options \"'--prefix=/home/meegoo/workspace/mindspeed/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc'\"
+ 
+ Copyright (C) 2003 Free Software Foundation, Inc.
+ This config.status script is free software; the Free Software Foundation
+@@ -387,8 +387,8 @@
+ fi
+ 
+ if $ac_cs_recheck; then
+-  echo "running /bin/sh ./configure " '--prefix=/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc' $ac_configure_extra_args " --no-create --no-recursion" >&6
+-  exec /bin/sh ./configure '--prefix=/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc' $ac_configure_extra_args --no-create --no-recursion
++  echo "running /bin/sh ./configure " '--prefix=/home/meegoo/workspace/mindspeed/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc' $ac_configure_extra_args " --no-create --no-recursion" >&6
++  exec /bin/sh ./configure '--prefix=/home/meegoo/workspace/mindspeed/build/tmpdist' '--host=arm-linux-uclibc' '--sysconfdir=/etc' 'CFLAGS=-Os' 'CC=arm-linux-uclibc-gcc' 'CPP=arm-linux-uclibc-gcc -E' 'host_alias=arm-linux-uclibc' $ac_configure_extra_args --no-create --no-recursion
+ fi
+ 
+ #
+@@ -467,7 +467,7 @@
+ s,@PACKAGE_STRING@,,;t t
+ s,@PACKAGE_BUGREPORT@,,;t t
+ s,@exec_prefix@,${prefix},;t t
+-s,@prefix@,/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build/tmpdist,;t t
++s,@prefix@,/home/meegoo/workspace/mindspeed/build/tmpdist,;t t
+ s,@program_transform_name@,s,x,x,,;t t
+ s,@bindir@,${exec_prefix}/bin,;t t
+ s,@sbindir@,${exec_prefix}/sbin,;t t
+@@ -507,12 +507,12 @@
+ s,@CYGPATH_W@,echo,;t t
+ s,@PACKAGE@,radvd,;t t
+ s,@VERSION@,1.5,;t t
+-s,@ACLOCAL@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run aclocal-1.9,;t t
+-s,@AUTOCONF@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoconf,;t t
+-s,@AUTOMAKE@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run automake-1.9,;t t
+-s,@AUTOHEADER@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoheader,;t t
+-s,@MAKEINFO@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run makeinfo,;t t
+-s,@install_sh@,/home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/install-sh,;t t
++s,@ACLOCAL@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run aclocal-1.9,;t t
++s,@AUTOCONF@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoconf,;t t
++s,@AUTOMAKE@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run automake-1.9,;t t
++s,@AUTOHEADER@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run autoheader,;t t
++s,@MAKEINFO@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run makeinfo,;t t
++s,@install_sh@,/home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/install-sh,;t t
+ s,@STRIP@,arm-linux-uclibc-strip,;t t
+ s,@ac_ct_STRIP@,,;t t
+ s,@INSTALL_STRIP_PROGRAM@,${SHELL} $(install_sh) -c -s,;t t
+@@ -520,7 +520,7 @@
+ s,@AWK@,awk,;t t
+ s,@SET_MAKE@,,;t t
+ s,@am__leading_dot@,.,;t t
+-s,@AMTAR@,${SHELL} /home/dslpl3/liubingwei/old_trunk_GRNV6.1U23J/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run tar,;t t
++s,@AMTAR@,${SHELL} /home/meegoo/workspace/mindspeed/build.MINDSPEED_C1000_V1.1/opensource/radvd/radvd-1.5/missing --run tar,;t t
+ s,@am__tar@,${AMTAR} chof - "$$tardir",;t t
+ s,@am__untar@,${AMTAR} xf -,;t t
+ s,@CC@,arm-linux-uclibc-gcc,;t t
+Index: src/driver/wireless/atheros/atheros_fusion/wlan/linux/net80211/ieee80211_input.c
+===================================================================
+--- src/driver/wireless/atheros/atheros_fusion/wlan/linux/net80211/ieee80211_input.c	(revision 2022)
++++ src/driver/wireless/atheros/atheros_fusion/wlan/linux/net80211/ieee80211_input.c	(working copy)
+@@ -230,6 +230,7 @@
+     * ieee80211_frame_min w/o first validating the data is
+     * present.
+     */
++    /* printk("ieee80211_input.skb->data - %p\n", skb->data); */
+     wh = (
+     struct ieee80211_frame *)skb->data;
+ 
+@@ -952,15 +953,19 @@
+             athff_decap(skb1);
+ 
+             /* deliver the frames */
++            printk("ieee80211_input.1.skb->data  - %p\n", skb->data);
++            printk("ieee80211_input.1.skb1->data - %p\n", skb1->data);
+             ieee80211_deliver_data(ni, skb);
+             ieee80211_deliver_data(ni, skb1);
+         }
+         else
+         {
+             /* assume non-atheros llc type */
++            printk("ieee80211_input.2.skb->data  - %p\n", skb->data);
+             ieee80211_deliver_data(ni, skb);
+         }
+ #else /* !ATH_SUPERG_FF */
++        printk("ieee80211_input.3.skb->data  - %p\n", skb->data);
+         ieee80211_deliver_data(ni, skb);
+ #endif
+         return IEEE80211_FC0_TYPE_DATA;
+@@ -1287,6 +1292,8 @@
+     struct net_device *dev = vap->iv_dev;
+     struct ether_header *eh = (struct ether_header *) skb->data;
+ 
++    printk("ieee80211_deliver_data.1.skb->data - %p\n", skb->data);
++ 
+     if ((vap->iv_opmode == IEEE80211_M_STA) &&
+            (vap->iv_flags_ext & IEEE80211_C_STA_FORWARD))
+     {
+@@ -1385,6 +1392,8 @@
+         }
+         else
+         {
++            /* ·¢ËÍskbÊý¾Ý°ü */
++            printk("ieee80211_deliver_data.2.skb->data - %p\n", skb->data);
+             netif_rx(skb);
+         }
+         dev->last_rx = jiffies;
+@@ -3311,6 +3320,7 @@
+         skb1->pkt_type = PACKET_OTHERHOST;
+         skb1->protocol = __constant_htons(0x0019);  /* ETH_P_80211_RAW */
+ 
++        printk("forward_mgmt_to_app.skb->data - %p\n", skb->data);
+         netif_rx(skb1);
+ #endif /* ATH_WPS_IE */
+     }
+Index: src/driver/wireless/atheros/atheros_fusion/wlan/common/lmac/ath_dev/linux/ath_osdep.c
+===================================================================
+--- src/driver/wireless/atheros/atheros_fusion/wlan/common/lmac/ath_dev/linux/ath_osdep.c	(revision 2022)
++++ src/driver/wireless/atheros/atheros_fusion/wlan/common/lmac/ath_dev/linux/ath_osdep.c	(working copy)
+@@ -60,6 +60,7 @@
+ 
+ void ath_handle_rx_intr(struct ath_softc *sc)
+ {
++    /* printk("meegoo - ath_handle_rx_intr\n"); */
+     ath_rx_tasklet(sc, 0);
+ }
+ 
+Index: src/driver/wireless/atheros/atheros_fusion/wlan/if_ath_net80211/if_ath.c
+===================================================================
+--- src/driver/wireless/atheros/atheros_fusion/wlan/if_ath_net80211/if_ath.c	(revision 2022)
++++ src/driver/wireless/atheros/atheros_fusion/wlan/if_ath_net80211/if_ath.c	(working copy)
+@@ -3105,6 +3105,27 @@
+     return;
+ }
+ #endif /*ATH_SUPPORT_UAPSD */
++
++
++
++
++static void DumpPacket(struct sk_buff *skb)
++{
++
++    int i=0;
++
++    printk("\n###############################################\n");
++    for(i=0;i<skb->len;i++)
++    {
++             if( i%16 == 0)
++                     printk("\n0x%08x:",i);
++             if( i%4 == 0)
++                     printk(" ");
++             printk("%02x ",skb->data[i]);
++     }
++     printk("\n###############################################\n\n");
++}
++
+ int
+ ath_net80211_rx(ieee80211_handle_t ieee, wbuf_t wbuf, ieee80211_rx_status_t *rx_status, u_int16_t keyix)
+ {
+@@ -3329,6 +3350,8 @@
+          * Not consumed by ath_dev for out-of-order delivery,
+          * indicate up the stack now.
+          */
++        printk("ath_net80211_rx.wbuf->data - %p\n", wbuf->data);
++        DumpPacket(wbuf);
+         type = ath_net80211_input(ni, wbuf, rx_status);
+     }
+     
