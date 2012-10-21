@@ -11,7 +11,11 @@ $BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTLIB"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # ${string//substring/replacement}
-substring=\/opt\/qte-???/bin:
+substring=\/usr\/local\/open\/qt-???\/bin:
 replacement=
 export PATH=${PATH//$substring/$replacement}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "PATH ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$PATH"
 

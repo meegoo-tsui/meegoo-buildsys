@@ -1,6 +1,6 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #+ Makefile:
-#+   Qt x86-64
+#+   Qt x86
 #+ author:
 #+   meegoo.tsui@gmail.com
 #+ date:
@@ -12,9 +12,9 @@ include ../qt.mak
 # x86 64 配置选项
 QT_CONFIG = $(QT_GIT_PATH)/configure \
                 -prefix $(EXEC_DIR) \
-                -embedded x86_64 \
-                -platform  qws/linux-x86_64-g++ \
-                -xplatform qws/linux-x86_64-g++ \
+                -embedded x86 \
+                -platform  qws/linux-x86-g++ \
+                -xplatform qws/linux-x86-g++ \
                 -depths 16,24,32 -no-cups \
                 -no-largefile -no-accessibility -no-openssl \
                 -qt-mouse-pc -qt-mouse-qvfb -qt-mouse-linuxtp -qt-mouse-linuxinput -plugin-mouse-linuxtp -plugin-mouse-pc -fast \

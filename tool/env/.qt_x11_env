@@ -1,7 +1,8 @@
 $BUILD_SYS_PATH/tool/shell/print_color.sh -y "Set env for Qt x11..."
-export QTDIR=/opt/qte-x11
-export QTINC=/opt/qte-x11/include
-export QTLIB=/opt/qte-x11/lib
+INSTALL_PATH=/usr/local/open/qt-x11
+export QTDIR=$INSTALL_PATH
+export QTINC=$INSTALL_PATH/include
+export QTLIB=$INSTALL_PATH/lib
 $BUILD_SYS_PATH/tool/shell/print_color.sh -y "QTDIR ="
 $BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTDIR"
 $BUILD_SYS_PATH/tool/shell/print_color.sh -y "QTINC ="
@@ -11,7 +12,11 @@ $BUILD_SYS_PATH/tool/shell/print_color.sh -g "$QTLIB"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # ${string//substring/replacement}
-substring=\/opt\/qte-???/bin:
+substring=\/usr\/local\/open\/qt-???\/bin:
 replacement=
-export PATH=/opt/qte-x11/bin:${PATH//$substring/$replacement}
+export PATH=$INSTALL_PATH/bin:${PATH//$substring/$replacement}
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+$BUILD_SYS_PATH/tool/shell/print_color.sh -y "PATH ="
+$BUILD_SYS_PATH/tool/shell/print_color.sh -g "$PATH"
 

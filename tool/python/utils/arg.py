@@ -173,7 +173,7 @@ Options:
 			opts, args = getopt.getopt(sys.argv[1:], "hmdo", ["help"])
 		except getopt.GetoptError as err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
-			self.check_usage()
+			self.repos_usage()
 			sys.exit(1)
 
 		## svn.py或git.py
@@ -186,6 +186,36 @@ Options:
 				repos_args = o
 
 		return repos_args
-	
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具links.py的帮助信息。
+	def links_usage(self):
+		printf.printf(3, "Usage:\n" + "links.py " + "[options]")
+		printf.printf(3, '''
+Options:
+-h | --help  print help info
+-s           source folder
+-d           link folder
+''')
+
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	## 工具links.py的解析参数。
+	def links_args(self):
+		try:
+			opts, args = getopt.getopt(sys.argv[1:], "hs:d:", ["help"])
+		except getopt.GetoptError as err:
+			printf.warn(str(err)) # will print something like "option -a not recognized"
+			self.links_usage()
+			sys.exit(1)
+
+		links_args = {'-s':'', '-d':''} # 默认为非法参数
+		for o, a in opts:
+			if   o in ("-h", "--help"):
+				self.links_usage()
+				sys.exit(1)
+			else:
+				links_args[o] = a
+		return links_args
+
 ## arg对象。
 arg = arg()
