@@ -37,7 +37,7 @@ default      make clean, make, make install
 		printf.status("parse args ...")
 		try:
 			opts, args = getopt.getopt(sys.argv[1:], "hcmix:", ["help"])
-		except getopt.GetoptError as err:
+		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.build_usage()
 			sys.exit(1)
@@ -84,7 +84,7 @@ Options:
 		printf.status("parse args ...")
 		try:
 			opts, args = getopt.getopt(sys.argv[1:], "hf:a:u", ["help"])
-		except getopt.GetoptError as err:
+		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.patch_usage()
 			sys.exit(1)
@@ -129,7 +129,7 @@ Options:
 		printf.status("parse args ...")
 		try:
 			opts, args = getopt.getopt(sys.argv[1:], "hf:", ["help"])
-		except getopt.GetoptError as err:
+		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.check_usage()
 			sys.exit(1)
@@ -171,7 +171,7 @@ Options:
 	def repos_args(self, repos):
 		try:
 			opts, args = getopt.getopt(sys.argv[1:], "hmdo", ["help"])
-		except getopt.GetoptError as err:
+		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.repos_usage()
 			sys.exit(1)
@@ -203,7 +203,7 @@ Options:
 	def links_args(self):
 		try:
 			opts, args = getopt.getopt(sys.argv[1:], "hs:d:", ["help"])
-		except getopt.GetoptError as err:
+		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.links_usage()
 			sys.exit(1)
