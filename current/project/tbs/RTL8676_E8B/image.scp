@@ -1,8 +1,8 @@
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #+
 #+ Download image.img to target
-#+   meegoo tsui, 2012-09-12
+#+   meegoo tsui, 2012/10/24
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 print "\r\nDownload image.img to target:"
-send savet 192.168.1.2 Grnv6.1U23J-83_C1000_trunk/image.img
+send savet 192.168.1.2 RTL8676_E8B/image.img
 

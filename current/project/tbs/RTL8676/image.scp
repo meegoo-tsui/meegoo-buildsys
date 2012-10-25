@@ -4,5 +4,5 @@
 #+   meegoo tsui, 2012-09-12
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 print "\r\nDownload image.img to target:"
-send savet 192.168.1.2 GAN9.9-RTL8676_trunk/image.img
+send savet 192.168.1.2 RTL8676/image.img
 
