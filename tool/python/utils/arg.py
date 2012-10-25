@@ -164,13 +164,15 @@ Options:
 -m           list modify files
 -d           list delete files
 -o           list others files
+-c           clean all repos at current path
+-b           backup all repost
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 工具svn.py或git.py的解析参数。
 	def repos_args(self, repos):
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hmdo", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hmdocb", ["help"])
 		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.repos_usage()
