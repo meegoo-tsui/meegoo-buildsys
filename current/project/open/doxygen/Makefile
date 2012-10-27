@@ -11,58 +11,65 @@ include buildsys.mak
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 源码位置
-SVN_PATH = $(HOME)/workspace/open/svn/doxygen-svn
+DOXYGEN_PATH   = $(HOME)/workspace/open/svn/doxygen-svn
 
 # 安装路径
-PREFIX       = $(EXEC_DIR)
+PREFIX         = $(EXEC_DIR)
 
+# 配置标志文件
+CONFIG_TOUCH   = config.touch
+# 配置日志
+CONFIG_LOG     = $(PWD)/configure.log
 # 编译日志
-MAKE_LOG     = $(PWD)/make.log
+MAKE_LOG       = $(PWD)/make.log
+
+# 配置选项
+DOXYGEN_CONFIG = ./configure --with-doxywizard
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 all: copy config
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
-		make prefix=$(PREFIX) all 2>$(MAKE_LOG); \
+		make all 2>$(MAKE_LOG); \
 	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-clean: 
+clean: copy config
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
-		if [ -f Makefile ]; then \
-			make clean; \
-			rm -f Makefile; \
-		fi; \
-		svn status | grep "^?" | awk '{print $2}' | xargs rm -rf; \
+		make clean; \
 	fi
-	@rm -f buildsys.mak $(MAKE_LOG)
+	@rm -f buildsys.mak *.log
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 install: 
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
-		sudo make prefix=$(PREFIX) install; \
+		sudo make install; \
 	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 copy:
 	@set -e; \
-	if [ ! -d $(SVN_PATH) ]; then \
+	if [ ! -d $(DOXYGEN_PATH) ]; then \
 		echo "checkout doxygen ..."; \
-		svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk $(SVN_PATH); \
+		svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk $(DOXYGEN_PATH); \
 	fi; \
 	if [ ! -d $(SRC_DIR) ]; then \
 		echo "复制doxygen源码..."; \
-		cp -r $(SVN_PATH) $(SRC_DIR); \
+		links.py -s $(DOXYGEN_PATH) -d $(SRC_DIR); \
 	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 config:
 	@set -e; \
 	cd $(SRC_DIR); \
-	./configure --prefix $(PREFIX) --with-doxywizard 
+	if [ ! -f $(CONFIG_TOUCH) ]; then \
+		echo $(CONFIG_TOUCH); \
+		$(DOXYGEN_CONFIG) 2>$(CONFIG_LOG); \
+		touch $(CONFIG_TOUCH); \
+	fi
 
