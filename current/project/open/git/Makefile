@@ -22,6 +22,9 @@ GIT_PATH   = $(HOME)/workspace/open/git/git
 # 版本
 VER        = v1.7.9.7
 
+# 编译路径
+SRC_DIR   := $(SRC_DIR)-$(VER)
+
 # 安装路径
 PREFIX     = $(EXEC_DIR)/$(VER)
 
@@ -37,13 +40,10 @@ all: copy
 	fi
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-clean: 
+clean: copy
 	@set -e; \
 	if [ -d $(SRC_DIR) ]; then \
 		cd $(SRC_DIR); \
-		git reset --hard; \
-		git clean -fdx; \
-		git checkout $(VER); \
 		make clean; \
 	fi
 	@rm -f buildsys.mak $(MAKE_LOG)
@@ -63,8 +63,12 @@ copy:
 		echo "克隆git源码..."; \
 		git clone git://git.kernel.org/pub/scm/git/git.git $(GIT_PATH); \
 	fi; \
+	cd $(GIT_PATH); \
+	git reset --hard; \
+	git clean -fdx; \
+	git checkout $(VER); \
 	if [ ! -d $(SRC_DIR) ]; then \
 		echo "复制git源码..."; \
-		cp -r $(GIT_PATH) $(SRC_DIR); \
+		links.py -s $(GIT_PATH) -d $(SRC_DIR); \
 	fi
 
