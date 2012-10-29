@@ -1,4 +1,4 @@
-
+MODULE ?= hello
 # To build modules outside of the kernel tree, we run "make"
 # in the kernel source tree; the Makefile these then includes this
 # Makefile once again.
@@ -19,14 +19,13 @@ modules_install:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
 
 clean:
-	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions \
+	*.symvers *.order
 
 .PHONY: modules modules_install clean
 
 else
     # called from kernel build system: just declare what our modules are
-    obj-m := hello.o hellop.o seq.o jit.o jiq.o sleepy.o complete.o \
-             silly.o faulty.o kdatasize.o kdataalign.o
+    obj-m := $(MODULE).o
 endif
-
 
