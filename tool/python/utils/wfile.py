@@ -45,6 +45,10 @@ class wfile:
 		if project_dict.has_key(glb.patch_path):
 			fp.write("# 补丁路径\n" + "PATCH_DIR = " + project_dict[glb.patch_path] + "\n")
 			fp.write("# 补丁标志\n" + "PATCH_FLAG = " + glb.patch_flag + "\n")
+
+		# 添加开源路径到makefile
+		if project_dict.has_key(glb.repos):
+			fp.write("# 开源路径\n" + "REPOS = " + project_dict[glb.repos] + "\n")
 		
 		# 写文件完成
 		fp.close()

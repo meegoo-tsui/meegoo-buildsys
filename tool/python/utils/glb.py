@@ -33,6 +33,8 @@ class glb:
 		self.patch_filetype = ".patch"
 		## 补丁标志文件
 		self.patch_flag     = "patch.done"
+		## 开源路径
+		self.repos          = "repos"
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## glb对象。
