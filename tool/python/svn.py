@@ -44,6 +44,9 @@ def main():
 			rev = os.popen("svn info " + r + " | awk '/Revision:/ { print $2 }'").read()
 			rev = "-svn" + rev.split("\n")[0]
 			cmd.tryit("tar -jcf " + r + rev + ".tar.bz2 " + r)
+	elif svn_args == "-s":
+		printf.status("svn info")
+		os.system("svn info")
 
 	sys.exit(0)
 

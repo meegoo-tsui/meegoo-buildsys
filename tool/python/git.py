@@ -25,7 +25,17 @@ def main():
 		os.system("git status -s | grep '^ D' | awk '{print $2}'")
 	elif svn_args == "-o":
 		os.system("git status -s | grep '^??' | awk '{print $2}'")	
-	
+	elif svn_args == "-s":
+		printf.status("Remote URL:")
+		os.system("git remote -v")
+		printf.status("Remote Branches: ")
+		os.system("git branch -r")
+		if os.path.isfile(".git/config"):
+			printf.status("== Configuration .git/config")
+			os.system("cat .git/config")
+		printf.status("== Most Recent Commit")
+		os.system("git --no-pager log --max-count=1")
+
 	sys.exit(0)
 
 if __name__ == '__main__':

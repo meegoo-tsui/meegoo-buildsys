@@ -166,13 +166,14 @@ Options:
 -o           list others files
 -c           clean all repos at current path
 -b           backup all repost
+-s           repos status
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	## 工具svn.py或git.py的解析参数。
 	def repos_args(self, repos):
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hmdocb", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hmdocbs", ["help"])
 		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.repos_usage()
