@@ -60,21 +60,39 @@ class check_repos:
 
 		# print check info
 		cnt = 0
+		chk_one_flg = 0
 		printf.status("repos status ...")
 		for i in sorted(self.dict):
+			if self.check_args['-o'] != "":
+				if self.check_args['-o'] == i:
+					chk_one_flg = 1
+					break
+				else:
+					continue
 			cnt = cnt + 1
 			printf.silence(str(cnt) + " - " + i)
 			repos_path = self.dict[i][0] + "/" + i
-			printf.silence("path - " + repos_path)
+			printf.silence("path - " + repos_path)										
 			if os.path.isdir(repos_path):
 				printf.silence("action - update\n")
 			else:
 				printf.silence("action - " + self.dict[i][0] + "\n")
 
+		# olny list all repos name
+		if self.check_args['-l'] != "":
+			return 0
+
+		# judge check one
+		if self.check_args['-o'] != "" and chk_one_flg == 0:
+			printf.error("No <" + self.check_args['-o'] + "> @ " + self.ini)
+
 		# check out or update
 		cnt = 0
 		printf.status("check out or update ...")
 		for i in sorted(self.dict):
+			if chk_one_flg == 1:
+				if self.check_args['-o'] != i:
+					continue
 			cnt = cnt + 1
 			printf.silence(str(cnt) + " - " + i)
 			repos_path = self.dict[i][0] + "/" + i

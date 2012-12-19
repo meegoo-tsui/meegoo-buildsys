@@ -121,6 +121,8 @@ Options:
 Options:
 -h | --help  print help info
 -f           ini file path
+-l           list all repos
+-o           checkout the repos
 ''')
 
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -128,19 +130,23 @@ Options:
 	def check_args(self):
 		printf.status("parse args ...")
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "hf:", ["help"])
+			opts, args = getopt.getopt(sys.argv[1:], "hf:lo:", ["help"])
 		except getopt.GetoptError , err:
 			printf.warn(str(err)) # will print something like "option -a not recognized"
 			self.check_usage()
 			sys.exit(1)
 
 		## check参数字典，ini路径
-		check_args = {'-f':''} # 默认为非法参数
+		check_args = {'-f':'', '-l':'' , '-o':''} # 默认为非法参数
 		for o, a in opts:
 			if   o in ("-h", "--help"):
 				self.check_usage()
 				sys.exit(1)
 			elif o == "-f":
+				check_args[o] = a
+			elif o == "-l":
+				check_args[o] = "true"
+			elif o == "-o":
 				check_args[o] = a
 			else:
 				assert False, "unhandled option"
